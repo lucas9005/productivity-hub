@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* === Angular Material Theming === */
+@use '@angular/material' as mat;
+
+/* === Tailwind Core Styles === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Angular Material Theme Config === */
+html {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+/* === Global Resets === */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

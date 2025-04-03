@@ -1,59 +1,179 @@
-# ProductivityHub
+# 🚀 Productivity Hub
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+An all-in-one suite for enhancing personal efficiency by consolidating essential productivity and lifestyle utilities.  
+Built with Angular 19, Tailwind CSS, Angular Material, and modern full-stack practices.
 
-## Development server
+## 🌟 Project Goals
 
-To start a local development server, run:
+- 🧩 Modular productivity platform
+- 🎯 Practice advanced Angular + NestJS architecture
+- 💼 Professional portfolio project (interviews & showcase)
+- 🌍 Public-facing application with user personalization
+
+## 🧭 Project Structure
+
+- **Landing page**: Server-Side Rendered (SSR) at `/`
+- **Dashboard**: `/app` — Main shell with modular, lazy-loaded features
+- **Monorepo style**: Organized, scalable, and maintainable
+
+## 🧩 Core Features
+
+| #   | App Module             | Features                              |
+| --- | ---------------------- | ------------------------------------- |
+| 1   | Task Manager           | Tasks, priorities, due dates, filters |
+| 2   | Finance Tracker        | Income/expenses, budgets, charts      |
+| 3   | Recipe Sharing         | Share, search, filter, rate recipes   |
+| 4   | Blog Platform          | Markdown posts, comments, tags        |
+| 5   | Event Booking          | Listings, seat selection, payments    |
+| 6   | E-commerce Catalog     | Products, cart, checkout              |
+| 7   | Social Media Dashboard | API integration, metrics              |
+| 8   | Chat App               | Real-time messaging                   |
+| 9   | Travel Planner         | Itinerary, booking, geolocation       |
+| 10  | Survey System          | Create & share polls, charts          |
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Angular 19 (standalone) + Angular Material + Tailwind CSS
+- **State Management**: NgRx v18+ Signals + Angular Services hybrid
+- **Authentication**: Firebase Authentication (Frontend)
+- **Backend**: NestJS API (WIP for Firebase token verification)
+- **Testing**: Jest (unit testing)
+- **CI/CD**: GitHub Actions
+- **Package Manager**: Bun
+- **Linting & Formatting**: ESLint + Prettier
+- **Git Hooks**: Husky + lint-staged
+- **Realtime**: Planned Firebase (Firestore), NestJS WebSockets (optional)
+
+## ⚙️ Setup & Usage
+
+### 1. Install Dependencies
 
 ```bash
-ng serve
+bun install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 2. Run Application (Dev)
 
 ```bash
-ng generate component component-name
+bun run start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 3. Run Application (Prod)
 
 ```bash
-ng generate --help
+bun run start:prod
 ```
 
-## Building
-
-To build the project run:
+### 4. Build Application (Dev)
 
 ```bash
-ng build
+bun run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### 5. Build Application (Prod)
 
 ```bash
-ng test
+bun run build:prod
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### 6. Build Application Watch Mode (Dev)
 
 ```bash
-ng e2e
+bun run build:watch
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### 7. Build Application Watch Mode (Prod)
 
-## Additional Resources
+```bash
+bun run build:watch:prod
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 8. Format Code
+
+```bash
+bun run format
+```
+
+### 9. Check Code Formatting
+
+```bash
+bun run format:check
+```
+
+### 10. Lint Code
+
+```bash
+bun run lint
+```
+
+### 11. Check Code Linting
+
+```bash
+bun run lint:check
+```
+
+### 12. Run Tests
+
+```bash
+bun run test
+```
+
+### 13. Run Tests (Watch Mode)
+
+```bash
+bun run test:watch
+```
+
+### 14. Run Tests (Coverage Report)
+
+```bash
+bun run test:coverage
+```
+
+### 15. Run Tests (CI)
+
+```bash
+bun run test:ci
+```
+
+### 16. Generate Docs
+
+```bash
+bun run docs
+```
+
+### 17. Generate and Run Docs
+
+```bash
+bun run docs:serve
+```
+
+## 🧩 Folder Structure
+
+```
+src/
+├── app/               # Main application shell
+│   ├── features/      # Modular feature apps
+│   ├── store/         # NgRx global store
+│   ├── core/          # Singleton services, guards
+│   └── shared/        # Shared components
+├── assets/            # Static assets
+├── environments/      # Environment configs
+public/                # Static public files
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes
+4. Push to your branch (`git push origin feature/your-feature`)
+5. Open a Pull Request 🚀
+
+## 📄 License
+
+MIT License
+
+## 🔗 Repository
+
+[Productivity Hub — GitHub Repo](https://github.com/lucas9005/productivity-hub)

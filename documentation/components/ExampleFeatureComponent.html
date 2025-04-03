@@ -1,0 +1,683 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>productivity-hub documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">productivity-hub documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ExampleFeatureComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/example-feature.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>for feature-specific state management.</p>
+<p>This component implements a simple counter with increment and decrement functionality
+using Angular&#39;s Signal API for reactive state management. It also demonstrates
+computed values with a doubled count value.</p>
+<p>The component can be used in templates as follows:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;app-example-feature&gt;&lt;/app-example-feature&gt;</code></pre></div><p>Example of integration with parent component:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Component({
+  selector: &#39;app-parent&#39;,
+  template: `
+    &lt;div&gt;
+      &lt;h1&gt;Parent Component&lt;/h1&gt;
+      &lt;app-example-feature&gt;&lt;/app-example-feature&gt;
+    &lt;/div&gt;
+  `
+})
+export class ParentComponent {}</code></pre></div><p>The component provides:</p>
+<ul>
+<li>A counter display</li>
+<li>Increment/decrement buttons</li>
+<li>A computed doubled value</li>
+</ul>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">```typescript
+// Access the counter value in the template
+{{ count() }}</code></pre></div><p>// Access the doubled value
+{{ doubledCount() }}</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none"></code></pre></div>
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-example-feature</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;p-4&quot;&gt;
+  &lt;h2 class&#x3D;&quot;text-2xl font-bold mb-4&quot;&gt;Example Feature&lt;/h2&gt;
+  &lt;div class&#x3D;&quot;flex items-center gap-4&quot;&gt;
+    &lt;button class&#x3D;&quot;px-4 py-2 bg-blue-500 text-white rounded&quot; (click)&#x3D;&quot;decrement()&quot;&gt;-&lt;/button&gt;
+    &lt;span class&#x3D;&quot;text-xl&quot;&gt;{{ count() }}&lt;/span&gt;
+    &lt;button class&#x3D;&quot;px-4 py-2 bg-blue-500 text-white rounded&quot; (click)&#x3D;&quot;increment()&quot;&gt;+&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;mt-4&quot;&gt;
+    &lt;p&gt;Doubled value: {{ doubledCount() }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#count" >count</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#doubledCount" >doubledCount</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#decrement" >decrement</a>
+                            </li>
+                            <li>
+                                <a href="#increment" >increment</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="decrement"></a>
+                    <span class="name">
+                        <span ><b>decrement</b></span>
+                        <a href="#decrement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>decrement()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/features/example-feature.component.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Uses Math.max to ensure the count never goes below 0</p>
+<p>This method demonstrates input validation and constraints on signal updates.
+The count will never go below 0, showing how to implement business rules
+in signal updates.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">```typescript
+// In template
+&lt;button (click)=&quot;decrement()&quot;&gt;-&lt;/button&gt;</code></pre></div><p>// In component
+this.decrement();</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none"></code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="increment"></a>
+                    <span class="name">
+                        <span ><b>increment</b></span>
+                        <a href="#increment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>increment()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/features/example-feature.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><b>Example :</b><div><pre class="line-numbers"><code class="language-html">```typescript
+&lt;button (click)=&quot;increment()&quot;&gt;+&lt;/button&gt;</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-none"></code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="count"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>count</b></span>
+                        <a href="#count"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/features/example-feature.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Protected to allow template access while maintaining encapsulation.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="doubledCount"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>doubledCount</b></span>
+                        <a href="#doubledCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; this.count() * 2)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/features/example-feature.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updates automatically when count changes.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, signal, computed } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+
+/**
+ * @description Example feature component demonstrating the use of Angular Signals
+ * for feature-specific state management.
+ *
+ * This component implements a simple counter with increment and decrement functionality
+ * using Angular&#x27;s Signal API for reactive state management. It also demonstrates
+ * computed values with a doubled count value.
+ *
+ * @usageNotes
+ * The component can be used in templates as follows:
+ * &#x60;&#x60;&#x60;html
+ * &lt;app-example-feature&gt;&lt;/app-example-feature&gt;
+ * &#x60;&#x60;&#x60;
+ *
+ * Example of integration with parent component:
+ * &#x60;&#x60;&#x60;typescript
+ * @Component({
+ *   selector: &#x27;app-parent&#x27;,
+ *   template: &#x60;
+ *     &lt;div&gt;
+ *       &lt;h1&gt;Parent Component&lt;/h1&gt;
+ *       &lt;app-example-feature&gt;&lt;/app-example-feature&gt;
+ *     &lt;/div&gt;
+ *   &#x60;
+ * })
+ * export class ParentComponent {}
+ * &#x60;&#x60;&#x60;
+ *
+ * The component provides:
+ * - A counter display
+ * - Increment/decrement buttons
+ * - A computed doubled value
+ *
+ * @example
+ * &#x60;&#x60;&#x60;typescript
+ * // Access the counter value in the template
+ * {{ count() }}
+ *
+ * // Access the doubled value
+ * {{ doubledCount() }}
+ * &#x60;&#x60;&#x60;
+ */
+@Component({
+  selector: &#x27;app-example-feature&#x27;,
+  standalone: true,
+  imports: [CommonModule],
+  template: &#x60;
+    &lt;div class&#x3D;&quot;p-4&quot;&gt;
+      &lt;h2 class&#x3D;&quot;text-2xl font-bold mb-4&quot;&gt;Example Feature&lt;/h2&gt;
+      &lt;div class&#x3D;&quot;flex items-center gap-4&quot;&gt;
+        &lt;button class&#x3D;&quot;px-4 py-2 bg-blue-500 text-white rounded&quot; (click)&#x3D;&quot;decrement()&quot;&gt;-&lt;/button&gt;
+        &lt;span class&#x3D;&quot;text-xl&quot;&gt;{{ count() }}&lt;/span&gt;
+        &lt;button class&#x3D;&quot;px-4 py-2 bg-blue-500 text-white rounded&quot; (click)&#x3D;&quot;increment()&quot;&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;mt-4&quot;&gt;
+        &lt;p&gt;Doubled value: {{ doubledCount() }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &#x60;,
+})
+export class ExampleFeatureComponent {
+  /**
+   * @description Signal representing the current count value.
+   * Protected to allow template access while maintaining encapsulation.
+   *
+   * @default 0
+   */
+  protected readonly count &#x3D; signal(0);
+
+  /**
+   * @description Computed signal that returns double the current count value.
+   * Updates automatically when count changes.
+   *
+   * @returns The current count multiplied by 2
+   */
+  readonly doubledCount &#x3D; computed(() &#x3D;&gt; this.count() * 2);
+
+  /**
+   * @description Increments the count value by 1 using immutable update.
+   *
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * &lt;button (click)&#x3D;&quot;increment()&quot;&gt;+&lt;/button&gt;
+   * &#x60;&#x60;&#x60;
+   */
+  increment(): void {
+    this.count.update((c) &#x3D;&gt; c + 1);
+  }
+
+  /**
+   * @description Decrements the count value by 1, but never below 0
+   * Uses Math.max to ensure the count never goes below 0
+   *
+   * @remarks
+   * This method demonstrates input validation and constraints on signal updates.
+   * The count will never go below 0, showing how to implement business rules
+   * in signal updates.
+   *
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * // In template
+   * &lt;button (click)&#x3D;&quot;decrement()&quot;&gt;-&lt;/button&gt;
+   *
+   * // In component
+   * this.decrement();
+   * &#x60;&#x60;&#x60;
+   */
+  decrement(): void {
+    this.count.update((c) &#x3D;&gt; Math.max(0, c - 1));
+  }
+}
+</code></pre>
+    </div>
+
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="p-4">  <h2 class="text-2xl font-bold mb-4">Example Feature</h2>  <div class="flex items-center gap-4">    <button class="px-4 py-2 bg-blue-500 text-white rounded" (click)="decrement()">-</button>    <span class="text-xl">{{ count() }}</span>    <button class="px-4 py-2 bg-blue-500 text-white rounded" (click)="increment()">+</button>  </div>  <div class="mt-4">    <p>Doubled value: {{ doubledCount() }}</p>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ExampleFeatureComponent', 'selector': 'app-example-feature'},{'name': 'SharedComponent', 'selector': 'app-shared'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ExampleFeatureComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ExampleFeatureComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

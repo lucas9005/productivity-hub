@@ -1,0 +1,305 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>productivity-hub documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">productivity-hub documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1>🚀 Productivity Hub</h1>
+<p>An all-in-one suite for enhancing personal efficiency by consolidating essential productivity and lifestyle utilities.<br>Built with Angular 19, Tailwind CSS, Angular Material, and modern full-stack practices.</p>
+<h2>🌟 Project Goals</h2>
+<ul>
+<li>🧩 Modular productivity platform</li>
+<li>🎯 Practice advanced Angular + NestJS architecture</li>
+<li>💼 Professional portfolio project (interviews &amp; showcase)</li>
+<li>🌍 Public-facing application with user personalization</li>
+</ul>
+<h2>🧭 Project Structure</h2>
+<ul>
+<li><strong>Landing page</strong>: Server-Side Rendered (SSR) at <code>/</code></li>
+<li><strong>Dashboard</strong>: <code>/app</code> — Main shell with modular, lazy-loaded features</li>
+<li><strong>Monorepo style</strong>: Organized, scalable, and maintainable</li>
+</ul>
+<h2>🧩 Core Features</h2>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>#</th>
+<th>App Module</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Task Manager</td>
+<td>Tasks, priorities, due dates, filters</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Finance Tracker</td>
+<td>Income/expenses, budgets, charts</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Recipe Sharing</td>
+<td>Share, search, filter, rate recipes</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Blog Platform</td>
+<td>Markdown posts, comments, tags</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Event Booking</td>
+<td>Listings, seat selection, payments</td>
+</tr>
+<tr>
+<td>6</td>
+<td>E-commerce Catalog</td>
+<td>Products, cart, checkout</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Social Media Dashboard</td>
+<td>API integration, metrics</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Chat App</td>
+<td>Real-time messaging</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Travel Planner</td>
+<td>Itinerary, booking, geolocation</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Survey System</td>
+<td>Create &amp; share polls, charts</td>
+</tr>
+</tbody>
+</table>
+<h2>🛠️ Tech Stack</h2>
+<ul>
+<li><strong>Frontend</strong>: Angular 19 (standalone) + Angular Material + Tailwind CSS</li>
+<li><strong>State Management</strong>: NgRx v18+ Signals + Angular Services hybrid</li>
+<li><strong>Authentication</strong>: Firebase Authentication (Frontend)</li>
+<li><strong>Backend</strong>: NestJS API (WIP for Firebase token verification)</li>
+<li><strong>Testing</strong>: Jest (unit testing)</li>
+<li><strong>CI/CD</strong>: GitHub Actions</li>
+<li><strong>Package Manager</strong>: Bun</li>
+<li><strong>Linting &amp; Formatting</strong>: ESLint + Prettier</li>
+<li><strong>Git Hooks</strong>: Husky + lint-staged</li>
+<li><strong>Realtime</strong>: Planned Firebase (Firestore), NestJS WebSockets (optional)</li>
+</ul>
+<h2>⚙️ Setup &amp; Usage</h2>
+<h3>1. Install Dependencies</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun install</code></pre></div><h3>2. Run Application (Dev)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run start</code></pre></div><h3>3. Run Application (Prod)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run start:prod</code></pre></div><h3>4. Build Application (Dev)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run build</code></pre></div><h3>5. Build Application (Prod)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run build:prod</code></pre></div><h3>6. Build Application Watch Mode (Dev)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run build:watch</code></pre></div><h3>7. Build Application Watch Mode (Prod)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run build:watch:prod</code></pre></div><h3>8. Format Code</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run format</code></pre></div><h3>9. Check Code Formatting</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run format:check</code></pre></div><h3>10. Lint Code</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run lint</code></pre></div><h3>11. Check Code Linting</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run lint:check</code></pre></div><h3>12. Run Tests</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run test</code></pre></div><h3>13. Run Tests (Watch Mode)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run test:watch</code></pre></div><h3>14. Run Tests (Coverage Report)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run test:coverage</code></pre></div><h3>15. Run Tests (CI)</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run test:ci</code></pre></div><h3>16. Generate Docs</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run docs</code></pre></div><h3>17. Generate and Run Docs</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">bun run docs:serve</code></pre></div><h2>🧩 Folder Structure</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">src/
+├── app/               # Main application shell
+│   ├── features/      # Modular feature apps
+│   ├── store/         # NgRx global store
+│   ├── core/          # Singleton services, guards
+│   └── shared/        # Shared components
+├── assets/            # Static assets
+├── environments/      # Environment configs
+public/                # Static public files</code></pre></div><h2>🤝 Contributing</h2>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch (<code>git checkout -b feature/your-feature</code>)</li>
+<li>Commit your changes</li>
+<li>Push to your branch (<code>git push origin feature/your-feature</code>)</li>
+<li>Open a Pull Request 🚀</li>
+</ol>
+<h2>📄 License</h2>
+<p>MIT License</p>
+<h2>🔗 Repository</h2>
+<p><a href="https://github.com/lucas9005/productivity-hub">Productivity Hub — GitHub Repo</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

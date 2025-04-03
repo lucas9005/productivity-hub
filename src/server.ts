@@ -3,40 +3,44 @@ import { CommonEngine, isMainModule } from '@angular/ssr/node';
 import express from 'express';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import bootstrap from './main.server';
 
+/** @description Directory containing the server-side rendered files */
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+
+/** @description Directory containing the browser-side files */
 const browserDistFolder = resolve(serverDistFolder, '../browser');
+
+/** @description Path to the server-side index.html template */
 const indexHtml = join(serverDistFolder, 'index.server.html');
 
+// Import the Angular SSR bootstrap function
+import bootstrap from './main.server.js';
+
+/** @description Express application instance for serving the Angular app */
 const app = express();
+
+/** @description Common engine instance for server-side rendering */
 const commonEngine = new CommonEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
+// Optional: define REST API endpoints
+// app.get('/api/**', (req, res) => { ... });
 
 /**
- * Serve static files from /browser
+ * @description Serve static files from /browser directory
+ * Configures Express to serve static files with caching enabled
  */
 app.get(
   '**',
   express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html'
-  }),
+    index: 'index.html',
+  })
 );
 
 /**
- * Handle all other requests by rendering the Angular application.
+ * @description Handle all other requests by rendering the Angular application
+ * This route catches any requests not handled by static file serving
+ * and renders the application using server-side rendering
  */
 app.get('**', (req, res, next) => {
   const { protocol, originalUrl, baseUrl, headers } = req;
@@ -54,14 +58,15 @@ app.get('**', (req, res, next) => {
 });
 
 /**
- * Start the server if this module is the main entry point.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
+ * @description Start the server if this module is the main entry point
+ * This allows the file to be both imported as a module and run directly
  */
 if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
   app.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`✅ Express SSR server running at http://localhost:${port}`);
   });
 }
 
+/** @description Export the Express app for use in other modules */
 export default app;
