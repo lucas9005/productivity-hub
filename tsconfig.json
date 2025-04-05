@@ -3,7 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -20,10 +20,10 @@
     "types": ["node", "@angular/core"],
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@core/*": ["src/app/core/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@store/*": ["src/app/store/*"]
+      "@app/*": ["apps/frontend/src/app/*"],
+      "@core/*": ["apps/frontend/src/app/core/*"],
+      "@shared/*": ["apps/frontend/src/app/shared/*"],
+      "@store/*": ["apps/frontend/src/app/store/*"]
     },
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -39,5 +39,9 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "references": [
+    { "path": "./apps/frontend/tsconfig.app.json" },
+    { "path": "./apps/frontend/tsconfig.spec.json" }
+  ]
 }

@@ -2,13 +2,13 @@ import type { Config } from 'jest';
 
 const config: Config = {
   preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  setupFilesAfterEnv: ['<rootDir>/apps/frontend/setup-jest.ts'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(ts|js|mjs|html|svg)$': [
       'jest-preset-angular',
       {
-        tsconfig: 'tsconfig.spec.json',
+        tsconfig: 'apps/frontend/tsconfig.spec.json',
         stringifyContentPathRegex: '\\.html$',
         useESM: true,
       },
@@ -16,16 +16,16 @@ const config: Config = {
     '^.+\\.ts$': [
       'ts-jest',
       {
-        tsconfig: 'tsconfig.spec.json',
+        tsconfig: 'apps/frontend/tsconfig.spec.json',
         stringifyContentPathRegex: '\\.html$',
       },
     ],
   },
   moduleNameMapper: {
-    '@app/(.*)': '<rootDir>/src/app/$1',
-    '@core/(.*)': '<rootDir>/src/app/core/$1',
-    '@shared/(.*)': '<rootDir>/src/app/shared/$1',
-    '@store/(.*)': '<rootDir>/src/app/store/$1',
+    '@app/(.*)': '<rootDir>/apps/frontend/src/app/$1',
+    '@core/(.*)': '<rootDir>/apps/frontend/src/app/core/$1',
+    '@shared/(.*)': '<rootDir>/apps/frontend/src/app/shared/$1',
+    '@store/(.*)': '<rootDir>/apps/frontend/src/app/store/$1',
   },
   moduleFileExtensions: ['ts', 'html', 'js', 'json', 'mjs'],
   testMatch: ['**/+(*.)+(spec).+(ts)'],

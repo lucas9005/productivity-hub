@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "productivity-hub": {
+    "frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -14,17 +14,17 @@
         }
       },
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "apps/frontend/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/productivity-hub",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "outputPath": "dist/frontend",
+            "index": "apps/frontend/src/index.html",
+            "browser": "apps/frontend/src/main.ts",
             "polyfills": ["zone.js"],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "apps/frontend/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
@@ -32,20 +32,20 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": ["apps/frontend/src/styles.scss"],
             "scripts": [],
-            "server": "src/main.server.ts",
+            "server": "apps/frontend/src/main.server.ts",
             "prerender": true,
             "ssr": {
-              "entry": "src/server.ts"
+              "entry": "apps/frontend/src/server.ts"
             }
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.dev.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "apps/frontend/src/environments/environment.dev.ts",
+                  "with": "apps/frontend/src/environments/environment.prod.ts"
                 }
               ],
               "budgets": [
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "productivity-hub:build:production"
+              "buildTarget": "frontend:build:production"
             },
             "development": {
-              "buildTarget": "productivity-hub:build:development"
+              "buildTarget": "frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +88,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "apps/frontend/src/**/*.ts",
+              "apps/frontend/src/**/*.html"
+            ]
           }
         }
       }
