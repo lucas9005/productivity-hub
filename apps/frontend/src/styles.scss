@@ -6,6 +6,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === Tailwind Layers Fix for Material Compatibility === */
+@layer base {
+  html {
+    @apply bg-white text-black;
+  }
+}
+
+/* Test class */
+.test-text {
+  @apply text-3xl font-bold underline;
+}
+
 /* === Angular Material Theme Config === */
 html {
   @include mat.theme(

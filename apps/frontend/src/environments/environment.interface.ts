@@ -17,6 +17,9 @@ export interface Environment {
   /** API endpoint URL */
   apiUrl: string;
 
+  /** Application version */
+  version: string;
+
   /** Feature flags for environment-specific features */
   features: {
     /** Enable experimental features */

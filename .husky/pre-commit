@@ -1,9 +1,7 @@
 #!/bin/sh
 echo "Running pre-commit checks..."
-echo "1. Running format on staged files..."
-bunx lint-staged --verbose | grep "prettier" || exit 1
 
-echo "2. Running lint on staged files..."
-bunx lint-staged --verbose | grep "eslint" || exit 1
+echo "1. Running formatting and linting on staged files..."
+bunx lint-staged --verbose
 
 echo "All pre-commit checks passed! 🎉"

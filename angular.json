@@ -4,7 +4,7 @@
   "cli": {
     "packageManager": "bun"
   },
-  "newProjectRoot": "projects",
+  "newProjectRoot": "apps",
   "projects": {
     "frontend": {
       "projectType": "application",
@@ -29,10 +29,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "apps/frontend/public"
               }
             ],
             "styles": ["apps/frontend/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["apps/frontend/src/styles"]
+            },
             "scripts": [],
             "server": "apps/frontend/src/main.server.ts",
             "prerender": true,
@@ -60,7 +63,9 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "namedChunks": false,
+              "sourceMap": false
             },
             "development": {
               "optimization": false,

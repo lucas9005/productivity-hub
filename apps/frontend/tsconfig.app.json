@@ -5,7 +5,7 @@
   "compilerOptions": {
     "outDir": "../../dist/productivity-hub/out-tsc/app",
     "types": ["node"],
-    "composite": true
+    "composite": false
   },
   "files": ["src/main.ts", "src/main.server.ts", "src/server.ts"],
   "include": ["src/**/*.ts", "src/**/*.d.ts"],

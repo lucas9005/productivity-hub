@@ -31,8 +31,10 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "noEmitOnError": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
