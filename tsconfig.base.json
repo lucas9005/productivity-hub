@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    // JavaScript environment and modern features
+    "lib": ["esnext", "dom"],
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleDetection": "force",
+
+    // Module resolution and output
+    "moduleResolution": "node",
+    "noEmit": true,
+
+    // Type checking and consistency
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    // Code safety and logic enforcement
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+
+    // Dead code detection
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}

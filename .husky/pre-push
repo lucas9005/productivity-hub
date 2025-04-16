@@ -1,0 +1,13 @@
+#!/bin/sh
+echo "Running pre-push checks..."
+
+echo "1. Checking code formatting..."
+bun run format:check || exit 1
+
+echo "2. Checking code linting..."
+bun run lint:check || exit 1
+
+echo "3. Running tests with coverage..."
+bun run test:coverage || exit 1
+
+echo "All pre-push checks passed! 🎉"
