@@ -7,16 +7,16 @@ apps/*/bun.lock
 # build output
 apps/*/dist/
 
-# log files
-**/*.log
+# test output
+apps/*/coverage/
 
 # tool caches
 apps/*/.eslintcache
 apps/*/*.tsbuildinfo
 apps/frontend/.angular/
 
-# test output
-apps/*/coverage/
+# log files
+**/*.log
 
 # macOS system files
 **/.DS_Store

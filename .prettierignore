@@ -1,0 +1,12 @@
+# dependencies
+node_modules/
+apps/*/node_modules/
+
+# build output
+apps/*/dist/
+
+# test output
+apps/*/coverage/
+
+# tool caches
+apps/frontend/.angular/
