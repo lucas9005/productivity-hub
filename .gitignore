@@ -15,5 +15,8 @@ apps/*/.eslintcache
 apps/*/*.tsbuildinfo
 apps/frontend/.angular/
 
+# test output
+apps/*/coverage/
+
 # macOS system files
 **/.DS_Store
