@@ -13,6 +13,7 @@ apps/*/dist/
 # tool caches
 apps/*/.eslintcache
 apps/*/*.tsbuildinfo
+apps/frontend/.angular/
 
 # macOS system files
 **/.DS_Store
