@@ -1,17 +1,20 @@
 {
 	"name": "frontend",
 	"version": "0.0.0",
+	"private": true,
 	"scripts": {
 		"ng": "ng",
-		"start": "ng serve",
-		"build": "ng build",
-		"watch": "ng build --watch --configuration development",
+		"start": "ng serve --configuration development",
+		"start:prod": "ng serve --configuration production",
+		"build": "ng build --configuration development",
+		"build:prod": "ng build --configuration production",
+		"build:watch": "ng build --watch --configuration development",
+		"build:watch:prod": "ng build --watch --configuration production",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
 		"test:ci": "jest --ci --coverage --runInBand"
 	},
-	"private": true,
 	"dependencies": {
 		"@angular/animations": "^19.2.7",
 		"@angular/cdk": "19.2.10",

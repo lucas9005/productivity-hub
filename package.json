@@ -1,7 +1,18 @@
 {
 	"name": "productivity-hub",
+	"version": "0.0.0",
 	"type": "module",
 	"private": true,
+	"scripts": {
+		"prepare": "git config core.hooksPath .husky",
+		"install:all": "bun install && (cd apps/frontend && bun install) && (cd apps/backend && bun install)",
+		"clean:all": "rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock",
+		"reset:all": "bun run clean:all && bun run install:all",
+		"format": "prettier --write \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
+		"format:check": "prettier --check \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
+		"lint": "eslint \"**/*.{ts,html}\" --fix",
+		"lint:check": "eslint \"**/*.{ts,html}\""
+	},
 	"devDependencies": {
 		"@angular-eslint/eslint-plugin": "^15.2.1",
 		"@angular-eslint/eslint-plugin-template": "^15.2.1",
@@ -16,16 +27,6 @@
 		"lint-staged": "^15.5.1",
 		"prettier": "^3.5.3",
 		"typescript": "~5.3.3"
-	},
-	"scripts": {
-		"prepare": "git config core.hooksPath .husky",
-		"install:all": "bun install && (cd apps/frontend && bun install) && (cd apps/backend && bun install)",
-		"clean:all": "rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock",
-		"reset:all": "bun run clean:all && bun run install:all",
-		"format": "prettier --write \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
-		"format:check": "prettier --check \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
-		"lint": "eslint \"**/*.{ts,html}\" --fix",
-		"lint:check": "eslint \"**/*.{ts,html}\""
 	},
 	"lint-staged": {
 		"*.{ts,js,json,html,scss,css,md,yml,yaml}": [
