@@ -128,6 +128,22 @@ export default [
 
 	// Ignore rules
 	{
-		ignores: ['**/dist/**']
+		ignores: [
+			// Dependencies
+			'node_modules/',
+			'apps/*/node_modules/',
+
+			// Build output
+			'apps/*/dist/',
+
+			// Test output
+			'apps/*/coverage/',
+
+			// Angular CLI cache
+			'apps/frontend/.angular/',
+
+			// IDE configs
+			'.vscode/'
+		]
 	}
 ];

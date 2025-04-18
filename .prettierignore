@@ -1,12 +1,15 @@
-# dependencies
+# Dependencies
 node_modules/
 apps/*/node_modules/
 
-# build output
+# Build output
 apps/*/dist/
 
-# test output
+# Test output
 apps/*/coverage/
 
-# tool caches
+# Angular CLI cache
 apps/frontend/.angular/
+
+# IDE configs
+.vscode/
