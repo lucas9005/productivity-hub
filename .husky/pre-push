@@ -7,7 +7,10 @@ bun run format:check || exit 1
 echo "2. Checking code linting..."
 bun run lint:check || exit 1
 
-echo "3. Running tests with coverage..."
-bun run test:coverage || exit 1
+echo "3. Running frontend tests with coverage..."
+(cd apps/frontend && bun run test:coverage) || exit 1
+
+echo "4. Running backend tests with coverage..."
+(cd apps/backend && bun run test:coverage) || exit 1
 
 echo "All pre-push checks passed! 🎉"

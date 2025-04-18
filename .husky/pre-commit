@@ -2,6 +2,6 @@
 echo "Running pre-commit checks..."
 
 echo "1. Running formatting and linting on staged files..."
-bunx lint-staged --verbose
+bunx lint-staged --verbose || exit 1
 
 echo "All pre-commit checks passed! 🎉"
