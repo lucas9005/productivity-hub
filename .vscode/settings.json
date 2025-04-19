@@ -1,8 +1,13 @@
 {
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"],
-  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["typescript", "html"],
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active"
 }

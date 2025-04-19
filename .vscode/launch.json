@@ -1,20 +1,21 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ng serve",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "name": "Debug Frontend (Angular)",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/apps/frontend"
     },
     {
-      "name": "ng test",
-      "type": "chrome",
+      "type": "node",
       "request": "launch",
-      "preLaunchTask": "npm: test",
-      "url": "http://localhost:9876/debug.html"
+      "name": "Debug Backend (NestJS)",
+      "runtimeExecutable": "bunx",
+      "runtimeArgs": ["ts-node", "--inspect-brk", "src/main.ts"],
+      "cwd": "${workspaceFolder}/apps/backend",
+      "skipFiles": ["<node_internals>/**"]
     }
   ]
 }

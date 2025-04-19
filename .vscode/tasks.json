@@ -1,42 +1,33 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "npm",
-      "script": "start",
-      "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
-        }
-      }
+      "label": "Start Frontend",
+      "type": "shell",
+      "command": "cd apps/frontend && bun run start",
+      "group": "build",
+      "problemMatcher": []
     },
     {
-      "type": "npm",
-      "script": "test",
-      "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
-        }
-      }
+      "label": "Start Backend",
+      "type": "shell",
+      "command": "cd apps/backend && bun run start:dev",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Test Frontend",
+      "type": "shell",
+      "command": "cd apps/frontend && bun run test",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Test Backend",
+      "type": "shell",
+      "command": "cd apps/backend && bun run test",
+      "group": "test",
+      "problemMatcher": []
     }
   ]
 }
