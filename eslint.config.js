@@ -131,7 +131,9 @@ export default [
 		ignores: [
 			// Dependencies
 			'node_modules/',
+			'bun.lock',
 			'apps/*/node_modules/',
+			'apps/*/bun.lock',
 
 			// Build output
 			'apps/*/dist/',
@@ -139,7 +141,10 @@ export default [
 			// Test output
 			'apps/*/coverage/',
 
-			// Angular CLI cache
+			// Docs output
+			'apps/*/documentation/',
+
+			// Tool caches
 			'apps/frontend/.angular/',
 
 			// IDE configs

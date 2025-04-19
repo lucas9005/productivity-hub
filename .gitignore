@@ -1,21 +1,21 @@
-# dependencies
+# Dependencies
 node_modules/
 bun.lock
 apps/*/node_modules/
 apps/*/bun.lock
 
-# build output
+# Build output
 apps/*/dist/
 
-# test output
+# Test output
 apps/*/coverage/
 
-# tool caches
+# Tool caches
 apps/*/.eslintcache
 apps/*/*.tsbuildinfo
 apps/frontend/.angular/
 
-# log files
+# Tool logs
 **/*.log
 
 # macOS system files

@@ -13,7 +13,9 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
-		"test:ci": "jest --ci --coverage --runInBand"
+		"test:ci": "jest --ci --coverage --runInBand",
+		"docs": "compodoc -p tsconfig.json",
+		"docs:start": "compodoc -p tsconfig.json -s"
 	},
 	"dependencies": {
 		"@angular/animations": "^19.2.7",
@@ -34,6 +36,7 @@
 		"@angular-devkit/build-angular": "^19.2.4",
 		"@angular/cli": "^19.2.4",
 		"@angular/compiler-cli": "^19.2.0",
+		"@compodoc/compodoc": "^1.1.26",
 		"@testing-library/angular": "^17.3.7",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@types/jest": "^29.5.14",
