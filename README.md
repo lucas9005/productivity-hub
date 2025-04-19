@@ -1,174 +1,116 @@
 # 🚀 Productivity Hub
 
 An all-in-one suite for enhancing personal efficiency by consolidating essential productivity and lifestyle utilities.  
-Built with Angular 19, Angular Material, and modern full-stack practices.
+Built with Angular 19, NestJS 11, and modern full-stack practices.
 
 ## 🌟 Project Goals
 
-- 🧩 Modular productivity platform
 - 🎯 Practice advanced Angular + NestJS architecture
-- 💼 Professional portfolio project (interviews & showcase)
-- 🌍 Public-facing application with user personalization
-
-## 🧭 Project Structure
-
-- **Landing page**: Server-Side Rendered (SSR) at `/`
-- **Dashboard**: `/app` — Main shell with modular, lazy-loaded features
-- **Monorepo style**: Organized, scalable, and maintainable
+- 🧩 Public-facing modular productivity platform
+- 💼 Professional portfolio project
 
 ## 🧩 Core Features
 
-| #   | App Module             | Features                              |
-| --- | ---------------------- | ------------------------------------- |
-| 1   | Task Manager           | Tasks, priorities, due dates, filters |
-| 2   | Finance Tracker        | Income/expenses, budgets, charts      |
-| 3   | Recipe Sharing         | Share, search, filter, rate recipes   |
-| 4   | Blog Platform          | Markdown posts, comments, tags        |
-| 5   | Event Booking          | Listings, seat selection, payments    |
-| 6   | E-commerce Catalog     | Products, cart, checkout              |
-| 7   | Social Media Dashboard | API integration, metrics              |
-| 8   | Chat App               | Real-time messaging                   |
-| 9   | Travel Planner         | Itinerary, booking, geolocation       |
-| 10  | Survey System          | Create & share polls, charts          |
+| #   | App Module      | Features                              |
+| --- | --------------- | ------------------------------------- |
+| 1   | Task Manager    | Tasks, priorities, due dates, filters |
+| 2   | Finance Tracker | Income/expenses, budgets, charts      |
+| 3   | Recipe Sharing  | Share, search, filter, rate recipes   |
+| 4   | Travel Planner  | Itinerary, booking, geolocation       |
+| 5   | Chat App        | Real-time messaging                   |
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Angular 19 (standalone) + Angular Material
-- **State Management**: NgRx v18+ Signals + Angular Services hybrid
-- **Authentication**: Firebase Authentication (Frontend)
-- **Backend**: NestJS API (WIP for Firebase token verification)
-- **Testing**: Jest (unit testing)
-- **CI/CD**: GitHub Actions
-- **Package Manager**: Bun
-- **Linting & Formatting**: ESLint + Prettier
-- **Git Hooks**: Husky + lint-staged
-- **Realtime**: Planned Firebase (Firestore), NestJS WebSockets (optional)
+| Scope        | Area                 | Tools / Details                            |
+| ------------ | -------------------- | ------------------------------------------ |
+| **Global**   | Package Manager      | Bun                                        |
+|              | Git Hooks            | Husky + lint-staged                        |
+|              | Linting & Formatting | ESLint (Flat Config) + Prettier            |
+|              | CI/CD                | GitHub Actions (planned)                   |
+| **Frontend** | Framework            | Angular 19 (standalone) + Angular Material |
+|              | State Management     | Signals + Angular Services (NgRx planned)  |
+|              | Authentication       | Firebase Authentication (planned)          |
+|              | Testing              | Jest                                       |
+|              | Documentation        | Compodoc                                   |
+| **Backend**  | Framework            | NestJS 11 REST API                         |
+|              | Testing              | Jest (unit + e2e), Supertest               |
+|              | Documentation        | TypeDoc, Swagger                           |
+|              | Environment Config   | `@nestjs/config` (planned)                 |
 
-## ⚙️ Setup & Usage
+## 🧪 Tooling Setup
 
-### 1. Install Dependencies
+| Tool            | Scope              | Details                                |
+| --------------- | ------------------ | -------------------------------------- |
+| **Bun**         | Global             | Package manager + scripts              |
+| **Prettier**    | Global             | Enforced via CLI and lint-staged       |
+| **ESLint**      | Global             | Flat config, Angular + TS + HTML rules |
+| **Jest**        | Frontend & Backend | Unit + E2E tests                       |
+| **Compodoc**    | Frontend           | Angular documentation generator        |
+| **Husky**       | Global             | Git hooks for pre-commit and pre-push  |
+| **Lint-Staged** | Global             | Formats/lints only staged files        |
+
+## 📁 Project Structure
+
+```text
+productivity-hub/
+├── apps/
+│   ├── frontend/       # Angular 19 app with Material, Jest, Compodoc
+│   └── backend/        # NestJS 11 app with Jest, Supertest, Swagger, TypeDoc
+├── docs/               # Markdown-based developer docs
+├── eslint.config.js    # Flat ESLint config (TS + Angular templates)
+├── prettier.config.js  # Prettier formatting rules
+├── tsconfig.base.json  # Shared TypeScript base config
+```
+
+## ⚙️ Scripts
+
+### 1. Setup Git Hooks
 
 ```bash
-bun install
+"prepare": "git config core.hooksPath .husky"
 ```
 
-### 2. Run Application (Dev)
+### 2. Install Dependencies
 
 ```bash
-bun run start
+"install:all": "bun install && (cd apps/frontend && bun install) && (cd apps/backend && bun install)"
 ```
 
-### 3. Run Application (Prod)
+### 3. Clean Dependencies and Caches
 
 ```bash
-bun run start:prod
+"clean:all": "rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock apps/*/dist apps/*/coverage apps/frontend/.angular"
 ```
 
-### 4. Build Application (Dev)
+### 4. Clean Dependencies and Caches then Install Dependencies
 
 ```bash
-bun run build
+"reset:all": "bun run clean:all && bun run install:all"
 ```
 
-### 5. Build Application (Prod)
+### 5. Format Code
 
 ```bash
-bun run build:prod
+"format": "prettier --write \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\""
 ```
 
-### 6. Build Application Watch Mode (Dev)
+### 6. Check Code Formatting
 
 ```bash
-bun run build:watch
+"format:check": "prettier --check \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\""
 ```
 
-### 7. Build Application Watch Mode (Prod)
+### 7. Lint Code
 
 ```bash
-bun run build:watch:prod
+"lint": "eslint \"**/*.{ts,html}\" --fix"
 ```
 
-### 8. Format Code
+### 8. Check Code Linting
 
 ```bash
-bun run format
+"lint:check": "eslint \"**/*.{ts,html}\""
 ```
-
-### 9. Check Code Formatting
-
-```bash
-bun run format:check
-```
-
-### 10. Lint Code
-
-```bash
-bun run lint
-```
-
-### 11. Check Code Linting
-
-```bash
-bun run lint:check
-```
-
-### 12. Run Tests
-
-```bash
-bun run test
-```
-
-### 13. Run Tests (Watch Mode)
-
-```bash
-bun run test:watch
-```
-
-### 14. Run Tests (Coverage Report)
-
-```bash
-bun run test:coverage
-```
-
-### 15. Run Tests (CI)
-
-```bash
-bun run test:ci
-```
-
-### 16. Generate Docs
-
-```bash
-bun run docs
-```
-
-### 17. Generate and Run Docs
-
-```bash
-bun run docs:serve
-```
-
-## 🧩 Folder Structure
-
-```
-src/
-├── app/               # Main application shell
-│   ├── features/      # Modular feature apps
-│   ├── store/         # NgRx global store
-│   ├── core/          # Singleton services, guards
-│   └── shared/        # Shared components
-├── assets/            # Static assets
-├── environments/      # Environment configs
-public/                # Static public files
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes
-4. Push to your branch (`git push origin feature/your-feature`)
-5. Open a Pull Request 🚀
 
 ## 📄 License
 
