@@ -13,7 +13,9 @@
 		"test:coverage": "jest --coverage",
 		"test:ci": "jest --ci --coverage --runInBand",
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-		"test:e2e": "jest --config ./test/jest-e2e.json"
+		"test:e2e": "jest --config ./test/jest-e2e.json",
+		"docs": "typedoc --options typedoc.config.mjs",
+		"docs:start": "bunx serve documentation --port 4000"
 	},
 	"dependencies": {
 		"@nestjs/common": "^11.0.1",
@@ -36,6 +38,7 @@
 		"ts-jest": "^29.3.2",
 		"ts-node": "^10.9.2",
 		"tsconfig-paths": "^4.2.0",
+		"typedoc": "^0.28.2",
 		"typescript": "^5.7.3"
 	},
 	"jest": {
