@@ -9,5 +9,8 @@
   "typescript.validate.enable": false,
   "javascript.validate.enable": false,
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active"
+  "editor.guides.bracketPairs": "active",
+  "markdownlint.config": {
+    "MD041": false
+  }
 }
