@@ -6,7 +6,7 @@
 	"scripts": {
 		"prepare": "git config core.hooksPath .husky",
 		"install:all": "bun install && (cd apps/frontend && bun install) && (cd apps/backend && bun install)",
-		"clean:all": "rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock",
+		"clean:all": "rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock apps/*/dist apps/*/coverage apps/frontend/.angular",
 		"reset:all": "bun run clean:all && bun run install:all",
 		"format": "prettier --write \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
 		"format:check": "prettier --check \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
@@ -14,8 +14,9 @@
 		"lint:check": "eslint \"**/*.{ts,html}\""
 	},
 	"devDependencies": {
-		"@angular-eslint/eslint-plugin": "^15.2.1",
-		"@angular-eslint/eslint-plugin-template": "^15.2.1",
+		"@angular-eslint/eslint-plugin": "^19.0.0",
+		"@angular-eslint/eslint-plugin-template": "^19.0.0",
+		"@angular-eslint/template-parser": "^19.0.0",
 		"@types/bun": "^1.2.9",
 		"@typescript-eslint/eslint-plugin": "^6.15.0",
 		"@typescript-eslint/parser": "^6.15.0",

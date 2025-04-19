@@ -4,6 +4,7 @@ import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import angular from '@angular-eslint/eslint-plugin';
 import angularTemplate from '@angular-eslint/eslint-plugin-template';
+import angularTemplateParser from '@angular-eslint/template-parser';
 import unusedImports from 'eslint-plugin-unused-imports';
 import importPlugin from 'eslint-plugin-import';
 
@@ -63,6 +64,8 @@ export default [
 			'@typescript-eslint/no-explicit-any': 'error',
 			'@typescript-eslint/no-unused-vars': 'off', // overridden by unused-imports plugin
 			'@typescript-eslint/no-empty-function': ['warn', { allow: ['constructors'] }],
+			'@typescript-eslint/no-floating-promises': 'warn',
+			'@typescript-eslint/no-unsafe-argument': 'warn',
 			'no-unused-vars': 'off',
 
 			// Code safety and logic correctness
@@ -114,17 +117,18 @@ export default [
 	},
 
 	// Template rules
-	//  {
-	//    files: ["**/*.html"],
-	//    plugins: {
-	//      "@angular-eslint/template": angularTemplate
-	//    },
-	//    processor: angularTemplate.processors[".html"],
-	//    rules: {
-	//      ...angularTemplate.configs.recommended.rules,
-	//      "prettier/prettier": ["error", { parser: "html" }]
-	//    }
-	//  },
+	{
+		files: ['**/*.html'],
+		languageOptions: {
+			parser: angularTemplateParser
+		},
+		plugins: {
+			'@angular-eslint/template': angularTemplate
+		},
+		rules: {
+			...angularTemplate.configs.recommended.rules
+		}
+	},
 
 	// Ignore rules
 	{
