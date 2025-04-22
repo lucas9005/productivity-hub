@@ -1,17 +1,15 @@
 # Dependencies
-node_modules/
-bun.lock
-apps/*/node_modules/
-apps/*/bun.lock
+**/node_modules/
+**/bun.lock
 
 # Build output
-apps/*/dist/
+**/dist/
 
 # Test output
-apps/*/coverage/
+**/coverage/
 
-# Docs output
-apps/*/documentation/
+# Documentation output
+**/documentation/
 
 # Tool caches
 apps/frontend/.angular/
