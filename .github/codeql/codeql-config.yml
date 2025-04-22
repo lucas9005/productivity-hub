@@ -1,0 +1,16 @@
+name: 'CodeQL config'
+
+paths:
+  - apps/frontend/src
+  - apps/backend/src
+
+paths-ignore:
+  - '**/node_modules'
+  - '**/bun.lock'
+  - '**/dist'
+  - '**/coverage'
+  - '**/documentation'
+  - '**/.angular'
+
+queries:
+  - uses: security-and-quality
