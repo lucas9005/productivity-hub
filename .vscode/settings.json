@@ -12,5 +12,8 @@
   "editor.guides.bracketPairs": "active",
   "markdownlint.config": {
     "MD041": false
+  },
+  "[yaml]": {
+    "editor.formatOnSave": false
   }
 }
