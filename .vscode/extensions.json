@@ -10,6 +10,7 @@
     "davidanson.vscode-markdownlint",
     "christian-kohler.path-intellisense",
     "github.vscode-github-actions",
-    "bierner.markdown-mermaid"
+    "bierner.markdown-mermaid",
+    "ms-azuretools.vscode-docker"
   ]
 }

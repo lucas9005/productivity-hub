@@ -1,0 +1,47 @@
+services:
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - '${FRONTEND_DEV_PORT}:${FRONTEND_DEV_PORT}'
+      - '${FRONTEND_DOCS_PORT}:${FRONTEND_DOCS_PORT}'
+    environment:
+      - NODE_ENV=${FRONTEND_NODE_ENV}
+    volumes:
+      - ./apps/frontend:/app
+    command: bun run start
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile.dev
+    ports:
+      - '${BACKEND_API_PORT}:${BACKEND_API_PORT}'
+      - '${BACKEND_DOCS_PORT}:${BACKEND_DOCS_PORT}'
+      - '${BACKEND_DEBUG_PORT}:${BACKEND_DEBUG_PORT}'
+    environment:
+      - NODE_ENV=${BACKEND_NODE_ENV}
+      - DATABASE_URL=${DATABASE_URL}
+    volumes:
+      - ./apps/backend:/app
+    command: bun run start:dev
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    ports:
+      - '${POSTGRES_PORT}:${POSTGRES_PORT}'
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

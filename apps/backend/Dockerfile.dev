@@ -1,0 +1,20 @@
+# Use bun image
+FROM oven/bun:1.2.10
+
+# Set working directory
+WORKDIR /app
+
+# Set bun install cache directory
+ENV BUN_INSTALL_CACHE="/root/.bun/install/cache"
+
+# Copy dependencies files
+COPY package.json bun.lock ./
+
+# Install dependencies
+RUN bun install
+
+# Expose ports
+EXPOSE 3000 4000 9229
+
+# Start server
+CMD ["bun", "run", "start:dev"]

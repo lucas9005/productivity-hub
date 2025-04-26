@@ -11,7 +11,14 @@
 		"format": "prettier --write \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
 		"format:check": "prettier --check \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
 		"lint": "eslint \"**/*.{ts,html}\" --fix",
-		"lint:check": "eslint \"**/*.{ts,html}\""
+		"lint:check": "eslint \"**/*.{ts,html}\"",
+		"docker:build": "docker compose build --pull --progress=plain",
+		"docker:build:no-cache": "docker compose build --no-cache --pull --progress=plain",
+		"docker:up": "docker compose up --remove-orphans",
+		"docker:up:build": "bun run docker:build && docker compose up --remove-orphans",
+		"docker:up:build:no-cache": "bun run docker:build:no-cache && docker compose up --remove-orphans",
+		"docker:clean": "docker compose down --remove-orphans && docker system prune --all --volumes --force && docker builder prune --all --force",
+		"docker:clean:volumes": "docker compose down --remove-orphans --volumes && docker system prune --all --volumes --force && docker builder prune --all --force"
 	},
 	"devDependencies": {
 		"@angular-eslint/eslint-plugin": "^19.0.0",

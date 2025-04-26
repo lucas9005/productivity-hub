@@ -1,0 +1,28 @@
+# Use bun image
+FROM oven/bun:1.2.10
+
+# Set working directory
+WORKDIR /app
+
+# Set bun install cache directory
+ENV BUN_INSTALL_CACHE="/root/.bun/install/cache"
+
+# Install npm inside the bun image
+RUN apt-get update && apt-get install -y npm && rm -rf /var/lib/apt/lists/*
+
+# Set npm install cache directory
+ENV npm_config_cache="/root/.npm"
+
+# Copy dependencies files
+COPY package.json bun.lock ./
+
+# Install dependencies using npm instead of bun
+# Angular CLI relies on optional native dependencies (e.g., @rollup/rollup-*)
+# which bun does not fully resolve. npm ensures full compatibility.
+RUN npm install
+
+# Expose ports
+EXPOSE 4200 8080
+
+# Start server
+CMD ["bun", "run", "start"]
