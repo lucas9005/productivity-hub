@@ -6,7 +6,7 @@
 	"scripts": {
 		"prepare": "git config core.hooksPath .husky",
 		"install:all": "bun install && (cd apps/frontend && bun install) && (cd apps/backend && bun install)",
-		"clean:all": "rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock apps/*/dist apps/*/coverage apps/frontend/.angular",
+		"clean:all": "rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock apps/*/dist apps/*/coverage apps/*/documentation apps/frontend/.angular",
 		"reset:all": "bun run clean:all && bun run install:all",
 		"format": "prettier --write \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",
 		"format:check": "prettier --check \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",

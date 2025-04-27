@@ -11,6 +11,15 @@ import importPlugin from 'eslint-plugin-import';
 export default [
 	// JavaScript rules
 	js.configs.recommended,
+	{
+		files: ['**/*.js'],
+		languageOptions: {
+			globals: {
+				console: 'readonly',
+				process: 'readonly'
+			}
+		}
+	},
 
 	// TypeScript rules
 	{

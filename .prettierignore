@@ -14,5 +14,8 @@
 # Tool caches
 apps/frontend/.angular/
 
+# Markup files
+**/*.md
+
 # IDE configs
 .vscode/
