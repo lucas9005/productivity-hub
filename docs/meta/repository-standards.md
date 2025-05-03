@@ -1,6 +1,6 @@
 # 🚀 Productivity Hub — Repository Standards
 
-## Overview
+## 📖 Overview
 
 This document defines the repository standards for the Productivity Hub project.
 Following these standards ensures a secure, consistent, and scalable workflow.

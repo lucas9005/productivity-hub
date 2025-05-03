@@ -1,7 +1,7 @@
 ---
 name: 🐞 Bugfix
-about: Submit a bugfix
-title: '[bugfix]: Bug Description'
+about: Submit a bugfix request
+title: '[bugfix]: Bug Name'
 labels: ['bugfix']
 ---
 
@@ -21,7 +21,7 @@ Brief explanation of the fix, including any decisions made or edge cases handled
 
 ## 🖼️ Screenshots (optional)
 
-Upload you screenshots here.
+Upload your screenshots here.
 
 ## 🔗 Related Issues (Optional)
 

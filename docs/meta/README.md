@@ -1,6 +1,6 @@
 # 🚀 Productivity Hub — Meta Documentation
 
-## Overview
+## 📖 Overview
 
 This folder contains project-level governance and historical meta documentation that focuses on repository standards, phase reports, and other non-development-specific records.
 
@@ -8,3 +8,7 @@ This folder contains project-level governance and historical meta documentation 
 
 - [Repository Standards](./repository-standards.md)
 - [Phase 0 Report](./phase0-report.md)
+
+---
+
+🔙 [Back to Root README](../../README.md)

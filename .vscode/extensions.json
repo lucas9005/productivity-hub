@@ -7,8 +7,9 @@
     "usernamehw.errorlens",
     "manucodes.nestjs-snippets",
     "yzhang.markdown-all-in-one",
-    "DavidAnson.vscode-markdownlint",
+    "davidanson.vscode-markdownlint",
     "christian-kohler.path-intellisense",
-    "GitHub.vscode-github-actions"
+    "github.vscode-github-actions",
+    "bierner.markdown-mermaid"
   ]
 }

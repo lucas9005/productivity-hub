@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+issue_templates:
+  - name: 💡 Feature
+    description: Submit a feature request
+    labels: [feature]
+    file: feature-template.md
+  - name: 🐞 Bugfix
+    description: Submit a bugfix request
+    labels: [bugfix]
+    file: bugfix-template.md
+  - name: 📚 Change (Chore, Refactor, Docs)
+    description: Submit a change request (Chore, Refactor, Docs)
+    labels: [chore, refactor, docs]
+    file: change-template.md

@@ -1,6 +1,6 @@
 ---
 name: 💡 Feature
-about: Submit a feature
+about: Submit a feature request
 title: '[feature]: Feature Name'
 labels: ['feature']
 ---
@@ -15,7 +15,7 @@ Describe how the feature will work and any technical details worth noting.
 
 ## 🖼️ Screenshots (optional)
 
-Upload you screenshots here.
+Upload your screenshots here.
 
 ## 🔗 Related Issues (Optional)
 
