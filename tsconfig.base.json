@@ -8,9 +8,6 @@
 
 		// Module resolution and output
 		"moduleResolution": "node",
-		"noEmit": true,
-
-		// Type checking and consistency
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true,
@@ -22,6 +19,12 @@
 
 		// Dead code detection
 		"noUnusedLocals": true,
-		"noUnusedParameters": true
-	}
+		"noUnusedParameters": true,
+		"noEmit": true,
+		"paths": {
+			"@api-contracts": ["libs/api-contracts"],
+			"@models": ["libs/models"]
+		}
+	},
+	"include": ["libs/**/*", "apps/**/*"]
 }

@@ -54,6 +54,19 @@ export default [
 				'warn',
 				{
 					groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+					pathGroups: [
+						{
+							pattern: '@api-contracts',
+							group: 'internal',
+							position: 'before'
+						},
+						{
+							pattern: '@models',
+							group: 'internal',
+							position: 'before'
+						}
+					],
+					pathGroupsExcludedImportTypes: ['builtin', 'external'],
 					'newlines-between': 'always',
 					alphabetize: { order: 'asc', caseInsensitive: true }
 				}
