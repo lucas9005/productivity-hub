@@ -1,28 +1,25 @@
 {
 	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
 	"version": 1,
-	"newProjectRoot": "projects",
 	"projects": {
 		"frontend": {
 			"projectType": "application",
+			"root": "",
+			"sourceRoot": "src",
+			"prefix": "app",
 			"schematics": {
 				"@schematics/angular:component": {
 					"standalone": true,
 					"style": "scss"
 				}
 			},
-			"root": "",
-			"sourceRoot": "src",
-			"prefix": "app",
 			"architect": {
 				"build": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/frontend",
 						"index": "src/index.html",
 						"browser": "src/main.ts",
 						"polyfills": ["zone.js"],
-						"tsConfig": "tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							{
@@ -35,6 +32,14 @@
 					},
 					"configurations": {
 						"production": {
+							"tsConfig": "tsconfig.prod.json",
+							"outputPath": "dist/prod",
+							"outputHashing": "all",
+							"sourceMap": false,
+							"optimization": true,
+							"extractLicenses": true,
+							"aot": true,
+							"namedChunks": false,
 							"budgets": [
 								{
 									"type": "initial",
@@ -46,16 +51,19 @@
 									"maximumWarning": "4kB",
 									"maximumError": "8kB"
 								}
-							],
-							"outputHashing": "all"
+							]
 						},
 						"development": {
+							"tsConfig": "tsconfig.dev.json",
+							"outputPath": "dist/dev",
+							"sourceMap": true,
 							"optimization": false,
 							"extractLicenses": false,
-							"sourceMap": true
+							"aot": false,
+							"namedChunks": true
 						}
 					},
-					"defaultConfiguration": "production"
+					"defaultConfiguration": "development"
 				},
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",

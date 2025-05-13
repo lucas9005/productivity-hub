@@ -44,6 +44,7 @@ travel planning, and real-time messaging — built with Angular 19, NestJS 11, a
 
 ## 📚 Available Documents
 
-- [Developer Documentation Overview](./docs/README.md)
-- [Meta Documentation Overview](./docs/meta/README.md)
-- [Architecture and Flow Diagrams Overview](./docs/diagrams/README.md)
+- [Developer Documentation](./docs/README.md)
+- [Scripts References](./docs/scripts/README.md)
+- [Architecture and Flow Diagrams](./docs/diagrams/README.md)
+- [Meta Documentation](./docs/meta/README.md)

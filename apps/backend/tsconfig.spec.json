@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"noEmit": false,
 		"outDir": "./dist/spec",
-		"types": ["jest"]
+		"types": ["node", "jest"]
 	},
 	"include": ["src/**/*.spec.ts"]
 }
