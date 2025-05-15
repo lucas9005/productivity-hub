@@ -1,0 +1,50 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { <FeatureGateway> } from './<feature>.gateway';
+import { <FeatureService> } from './<feature>.service';
+import { WsException } from '@nestjs/websockets';
+
+describe('<FeatureGateway> Gateway', () => {
+  let gateway: <FeatureGateway>;
+  let service: jest.Mocked<<FeatureService>>;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        <FeatureGateway>,
+        {
+          provide: <FeatureService>,
+          useValue: {
+            handleMessage: jest.fn()
+          }
+        }
+      ]
+    }).compile();
+
+    gateway = module.get(<FeatureGateway>);
+    service = module.get(<FeatureService>) as jest.Mocked<<FeatureService>>;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe('handleMessage()', () => {
+    it('should delegate to service and return result', async () => {
+      const mockPayload = { message: 'hello' };
+      const mockClient = { id: 'client123', emit: jest.fn() };
+
+      service.handleMessage.mockResolvedValue('ok');
+
+      const result = await gateway.handleMessage(mockClient as any, mockPayload);
+
+      expect(service.handleMessage).toHaveBeenCalledWith(mockClient, mockPayload);
+      expect(result).toBe('ok');
+    });
+
+    it('should throw WsException on service error', async () => {
+      service.handleMessage.mockRejectedValue(new Error('Oops'));
+
+      await expect(gateway.handleMessage({} as any, {})).rejects.toThrow(WsException);
+    });
+  });
+});

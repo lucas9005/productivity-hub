@@ -11,7 +11,7 @@ async function setup(): Promise<void> {
 	});
 }
 
-describe('AppComponent', (): void => {
+describe('AppComponent Component', () => {
 	it('should render the material card with content', async () => {
 		await setup();
 

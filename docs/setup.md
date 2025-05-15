@@ -36,7 +36,7 @@ cd productivity-hub
 ### 4. Install Project Dependencies
 
 ```bash
-bun run install:all
+bun run install:dependencies
 ```
 
 This installs dependencies for:

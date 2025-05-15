@@ -1,0 +1,26 @@
+import { ArgumentMetadata, BadRequestException } from '@nestjs/common';
+import { <FeaturePipe> } from './<feature>.pipe';
+
+describe('<FeaturePipe> Pipe', () => {
+  let pipe: <FeaturePipe>;
+
+  beforeEach(() => {
+    pipe = new <FeaturePipe>();
+  });
+
+  describe('transform()', () => {
+    it('should pass valid input through', () => {
+      const value = 'valid';
+      const metadata: ArgumentMetadata = { type: 'body', metatype: String, data: '' };
+
+      expect(pipe.transform(value, metadata)).toBe(value);
+    });
+
+    it('should throw for invalid input', () => {
+      const value = null;
+      const metadata: ArgumentMetadata = { type: 'body', metatype: String, data: '' };
+
+      expect(() => pipe.transform(value, metadata)).toThrow(BadRequestException);
+    });
+  });
+});

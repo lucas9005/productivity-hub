@@ -10,7 +10,8 @@ async function bootstrap(): Promise<void> {
 	SwaggerModule.setup('api-docs', app, document, {
 		swaggerOptions: { persistAuthorization: true, displayRequestDuration: true }
 	});
-	await app.listen(process.env.PORT ?? 3000);
+	const port = Number(process.env['PORT']) || 3000;
+	await app.listen(port);
 }
 
 bootstrap().catch((err) => {

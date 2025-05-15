@@ -1,0 +1,38 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { <Feature>Controller } from './<feature>.controller';
+import { <Feature>Service } from './<feature>.service';
+
+describe('<Feature>Controller Controller', () => {
+  let controller: <Feature>Controller;
+  let service: jest.Mocked<<Feature>Service>;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [<Feature>Controller],
+      providers: [
+        {
+          provide: <Feature>Service,
+          useValue: {
+            methodA: jest.fn(),
+            methodB: jest.fn()
+          }
+        }
+      ]
+    }).compile();
+
+    controller = module.get(<Feature>Controller);
+    service = module.get(<Feature>Service) as jest.Mocked<<Feature>Service>;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe('methodName()', () => {
+    it('should return expected data', async () => {
+      service.methodA.mockResolvedValue('mocked');
+      const result = await controller.methodName();
+      expect(result).toBe('expected');
+    });
+  });
+});

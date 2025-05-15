@@ -1,0 +1,15 @@
+import { <FeaturePipe> } from './<feature>.pipe';
+
+describe('<FeaturePipe> Pipe', () => {
+  let pipe: <FeaturePipe>;
+
+  beforeEach(() => {
+    pipe = new <FeaturePipe>();
+  });
+
+  it('should transform value correctly', () => {
+    const input = 'test';
+    const result = pipe.transform(input);
+    expect(result).toBe(/* expected value */);
+  });
+});

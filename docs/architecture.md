@@ -1,4 +1,4 @@
-# 🚀 Productivity Hub — System Architecture Overview
+# 🚀 Productivity Hub — System Architecture
 
 ## 1. Frontend Structure
 
@@ -7,14 +7,16 @@
   - Use Angular **Standalone Components** (`standalone: true`) across all features.
   - Organize each feature as a **Lazy-loaded route** using `loadComponent` or `loadChildren`.
   - Shared visual components (like Button, Modal) reside in `/shared/components/`.
+- **Shared Folder Usage:**
+  - Reusable Pipes, Directives, and Utility Services are placed under `/shared/`.
 - **Routing:**
   - Central `app.routes.ts` file aggregates routes.
   - Features lazy-load their modules for better performance and scalability.
 - **State Management:**
   - Prefer Angular **Signals API** for simple local and feature-level state.
   - Introduce **NgRx Store** selectively when cross-feature state becomes complex (e.g., cross-module user session sharing).
-- **Future Shared Folder Usage:**
-  - `/shared/` will also contain reusable Pipes, Directives, and simple Utility Services.
+- **TypeScript Configuration:**
+  - TypeScript configuration split into `tsconfig.dev.json`, `tsconfig.prod.json`, `tsconfig.spec.json`, and `tsconfig.docs.json` for clearer environment separation and tooling alignment.
 
 ## 2. Backend Structure
 
@@ -28,6 +30,8 @@
 - **Testing:**
   - Unit testing with Jest for services/controllers.
   - e2e testing using SuperTest integrated with NestJS `@nestjs/testing` utilities.
+- **TypeScript Configuration:**
+  - TypeScript configuration split into `tsconfig.dev.json`, `tsconfig.prod.json`, `tsconfig.spec.json`, and `tsconfig.docs.json` for clearer environment separation and tooling alignment.
 
 ## 3. Shared Principles
 
@@ -106,3 +110,13 @@
 - **Env Management:**
   - Organized `.env` structure (`.env.dev`, `.env.prod`, `.env.local` if needed).
   - Secrets excluded via `.gitignore` and documented in `.env.example`.
+
+## 9. Shared Libraries and Path Aliases
+
+- **Core reusable types and contracts:**
+  - `libs/models` — business models like `Task`, `User`
+  - `libs/api-contracts` — shared DTOs and API schemas
+- **TypeScript path aliases:**
+  - Defined in `tsconfig.base.json`
+  - `@models` → `libs/models`
+  - `@api-contracts` → `libs/api-contracts`

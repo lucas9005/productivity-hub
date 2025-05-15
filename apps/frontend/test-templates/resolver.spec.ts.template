@@ -1,0 +1,24 @@
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
+import { <FeatureResolver> } from './<feature>.resolver';
+
+describe('<FeatureResolver> Resolver', () => {
+  let resolver: <FeatureResolver>;
+  const mockRoute = {} as ActivatedRouteSnapshot;
+  const mockState = {} as RouterStateSnapshot;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [<FeatureResolver>]
+    });
+
+    resolver = TestBed.inject(<FeatureResolver>);
+  });
+
+  it('should resolve observable data', (done) => {
+    resolver.resolve(mockRoute, mockState).subscribe((result) => {
+      expect(result).toBeDefined();
+      done();
+    });
+  });
+});
