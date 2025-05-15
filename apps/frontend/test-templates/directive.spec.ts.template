@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { <FeatureDirective> } from './<feature>.directive';
+
+@Component({
+  template: `<div featureDirective></div>`
+})
+class TestHostComponent {}
+
+describe('<FeatureDirective> Directive', () => {
+  let fixture: ComponentFixture<TestHostComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [TestHostComponent, <FeatureDirective>]
+    });
+
+    fixture = TestBed.createComponent(TestHostComponent);
+    fixture.detectChanges();
+  });
+
+  it('should apply the directive to host element', () => {
+    const directiveElement = fixture.debugElement.query(By.directive(<FeatureDirective>));
+    expect(directiveElement).toBeTruthy();
+  });
+});

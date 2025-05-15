@@ -1,0 +1,34 @@
+import { ExecutionContext } from '@nestjs/common';
+import { Test, TestingModule } from '@nestjs/testing';
+import { <FeatureGuard> } from './<feature>.guard';
+
+describe('<FeatureGuard> Guard', () => {
+  let guard: <FeatureGuard>;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [<FeatureGuard>]
+    }).compile();
+
+    guard = module.get(<FeatureGuard>);
+  });
+
+  const rolesToTest = [
+    { role: 'admin', expected: true },
+    { role: 'user', expected: false }
+  ];
+
+  rolesToTest.forEach(({ role, expected }) => {
+    it(`should ${expected ? 'allow' : 'deny'} access for role '${role}'`, () => {
+      const mockContext = {
+        switchToHttp: () => ({
+          getRequest: () => ({
+            user: { role }
+          })
+        })
+      } as unknown as ExecutionContext;
+
+      expect(guard.canActivate(mockContext)).toBe(expected);
+    });
+  });
+});

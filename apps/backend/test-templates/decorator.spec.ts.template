@@ -1,0 +1,23 @@
+import { ExecutionContext } from '@nestjs/common';
+import { <FeatureDecorator> } from './<feature>.decorator';
+
+describe('<FeatureDecorator> Decorator', () => {
+  it('should extract expected value from request', () => {
+    const mockContext = {
+      switchToHttp: () => ({
+        getRequest: () => ({
+          user: { id: '123', role: 'admin' }
+        })
+      })
+    } as unknown as ExecutionContext;
+
+    const extractor =
+      typeof <FeatureDecorator> === 'function' && 'factory' in <FeatureDecorator>
+        ? (<any><FeatureDecorator>).factory()
+        : <FeatureDecorator>;
+
+    const result = extractor(null, mockContext);
+
+    expect(result).toEqual(/* expected value, e.g., '123' */);
+  });
+});

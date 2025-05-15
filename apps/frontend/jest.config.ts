@@ -1,3 +1,4 @@
+/** @type {import('jest').Config} */
 import type { Config } from 'jest';
 
 const config: Config = {

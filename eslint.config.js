@@ -7,6 +7,7 @@ import angularTemplate from '@angular-eslint/eslint-plugin-template';
 import angularTemplateParser from '@angular-eslint/template-parser';
 import unusedImports from 'eslint-plugin-unused-imports';
 import importPlugin from 'eslint-plugin-import';
+import globals from 'globals';
 
 export default [
 	// JavaScript rules
@@ -121,16 +122,9 @@ export default [
 		files: ['**/*.spec.ts', '**/*.e2e-spec.ts'],
 		languageOptions: {
 			globals: {
+				...globals.jest,
 				console: 'readonly',
-				process: 'readonly',
-				describe: 'readonly',
-				it: 'readonly',
-				expect: 'readonly',
-				beforeEach: 'readonly',
-				afterEach: 'readonly',
-				vi: 'readonly',
-				jest: 'readonly',
-				test: 'readonly'
+				process: 'readonly'
 			}
 		},
 		rules: {

@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('typedoc').TypeDocOptions} */
+export default {
 	entryPoints: ['src'],
 	entryPointStrategy: 'expand',
 	out: 'documentation',

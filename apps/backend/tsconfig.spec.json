@@ -5,5 +5,5 @@
 		"outDir": "./dist/spec",
 		"types": ["node", "jest"]
 	},
-	"include": ["src/**/*.spec.ts"]
+	"include": ["src/**/*.spec.ts", "e2e/**/*.e2e-spec.ts"]
 }

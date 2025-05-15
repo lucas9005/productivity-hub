@@ -1,0 +1,20 @@
+import { NextFunction, Request, Response } from 'express';
+import { <FeatureMiddleware> } from './<feature>.middleware';
+
+describe('<FeatureMiddleware> Middleware', () => {
+  let middleware: <FeatureMiddleware>;
+
+  beforeEach(() => {
+    middleware = new <FeatureMiddleware>();
+  });
+
+  it('should call next() without throwing', () => {
+    const req = {} as Request;
+    const res = {} as Response;
+    const next = jest.fn();
+
+    middleware.use(req, res, next);
+
+    expect(next).toHaveBeenCalled();
+  });
+});

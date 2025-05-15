@@ -1,0 +1,46 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { <FeatureService> } from './<feature>.service';
+import { <DependencyService> } from '../<dependency>/<dependency>.service';
+
+describe('<FeatureService> Service', () => {
+  let service: <FeatureService>;
+  let dependencyService: jest.Mocked<<DependencyService>>;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        <FeatureService>,
+        {
+          provide: <DependencyService>,
+          useValue: {
+            methodA: jest.fn(),
+            methodB: jest.fn()
+          }
+        }
+      ]
+    }).compile();
+
+    service = module.get(<FeatureService>);
+    dependencyService = module.get(<DependencyService>) as jest.Mocked<<DependencyService>>;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe('methodName()', () => {
+    it('should return expected result when input is valid', () => {
+      dependencyService.methodA.mockReturnValue('mocked');
+      const result = service.methodName();
+      expect(result).toBe('expected');
+    });
+
+    it('should throw if dependency fails', () => {
+      dependencyService.methodA.mockImplementation(() => {
+        throw new Error('Failure');
+      });
+
+      expect(() => service.methodName()).toThrow('Failure');
+    });
+  });
+});
