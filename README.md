@@ -24,15 +24,15 @@ travel planning, and real-time messaging — built with Angular 19, NestJS 11, a
 - 🎯 Master advanced Angular 19 + NestJS 11 architecture in a real-world, modular setup  
 - 📚 Maintain structured documentation and architecture diagrams for long-term maintainability  
 
-## 🧩 Core Features
+## 🧩 App Features
 
-| #   | App Module      | Features                              |
-| --- | --------------- | ------------------------------------- |
-| 1   | Task Manager    | Tasks, priorities, due dates, filters |
-| 2   | Finance Tracker | Income/expenses, budgets, charts      |
-| 3   | Recipe Book     | Share, search, filter, rate recipes   |
-| 4   | Travel Planner  | Itinerary, booking, geolocation       |
-| 5   | Chat App        | Real-time messaging                   |
+| #   | Feature         | Description                                                                 |
+| --- | --------------- | --------------------------------------------------------------------------- |
+| 1   | Task Manager    | Create tasks, set priorities and deadlines, and organize them with filters. |
+| 2   | Finance Tracker | Monitor income and expenses, set budgets, and view insights with charts.    |
+| 3   | Recipe Book     | Store personal recipes with tags and instructions. Share select recipes.    |
+| 4   | Travel Planner  | Plan trips with itineraries, notes, and reservations. Stay organized.       |
+| 5   | Real-time Chat  | Connect with others through responsive, real-time conversations.            |
 
 ## 📄 License
 

@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { RouterOutlet } from '@angular/router';
 
+/**
+ * Root application component.
+ *
+ * Acts as the main entry point of the application.
+ * Hosts the global `<router-outlet />` for rendering routed
+ * views from core and feature modules.
+ *
+ * @example
+ * <app-root></app-root>
+ */
 @Component({
-	standalone: true,
 	selector: 'app-root',
-	imports: [MatCardModule, MatButtonModule, MatSlideToggleModule],
+	imports: [RouterOutlet],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss'
 })
-export class AppComponent {
-	title = 'frontend';
-}
+export class AppComponent {}

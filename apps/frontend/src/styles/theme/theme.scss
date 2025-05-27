@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Theme Definitions
+   --------------------------------------------------------------------------
+   Dark and light theme definitions
+   ========================================================================== */
+
+@use '@angular/material' as mat;
+
+html {
+	color-scheme: light dark;
+	@include mat.theme(
+		(
+			color: (
+				primary: mat.$green-palette,
+				tertiary: mat.$violet-palette
+			),
+			typography: Roboto,
+			density: 0
+		)
+	);
+}
