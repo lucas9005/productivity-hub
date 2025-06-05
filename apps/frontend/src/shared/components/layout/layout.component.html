@@ -1,0 +1,44 @@
+<header class="layout-header" role="banner">
+	<mat-toolbar class="layout-toolbar">
+		<div class="layout-branding">
+			<button mat-icon-button aria-label="Open the main menu" (click)="sidenav.toggle()">
+				<mat-icon>menu</mat-icon>
+			</button>
+			<img src="assets/images/brand/logo.svg" alt="Productivity Hub logo" />
+			<h1>Productivity Hub</h1>
+		</div>
+		<button mat-icon-button aria-label="Open the user menu" [matMenuTriggerFor]="userMenu">
+			<mat-icon>account_circle</mat-icon>
+		</button>
+		<mat-menu #userMenu="matMenu" xPosition="before" yPosition="below">
+			<button mat-menu-item aria-label="Open the user settings">
+				<mat-icon>manage_accounts</mat-icon>
+				<span>Settings</span>
+			</button>
+			<button mat-menu-item aria-label="Logout the user account">
+				<mat-icon>logout</mat-icon>
+				<span>Logout</span>
+			</button>
+		</mat-menu>
+	</mat-toolbar>
+</header>
+<mat-sidenav-container class="layout-sidenav-container">
+	<mat-sidenav #sidenav mode="over" [autoFocus]="false" role="navigation" aria-label="Main navigation menu" class="layout-sidenav">
+		<mat-nav-list>
+			@for (route of routeList; track route) {
+				<mat-list-item [routerLink]="route.routerLink" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="layout-list-item {{ route.className }}-item">
+					<div class="layout-route-item">
+						<mat-icon [fontIcon]="route.icon" [attr.aria-label]="route.label + ' icon'" aria-hidden="false"></mat-icon>
+						<span>{{ route.label }}</span>
+					</div>
+				</mat-list-item>
+			}
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content class="layout-sidenav-content">
+		<div class="layout-content-area">
+			<router-outlet />
+		</div>
+		<app-footer></app-footer>
+	</mat-sidenav-content>
+</mat-sidenav-container>

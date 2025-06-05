@@ -1,0 +1,35 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding-block: 1rem 2rem;
+	padding-inline: 1rem;
+	margin-top: auto;
+}
+
+.footer-nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.footer-nav img {
+	width: 2rem;
+	height: auto;
+}
+
+.footer-copyright {
+	margin: 0;
+}
+
+@media (min-width: 600px) {
+	:host {
+		padding-block: 2rem 4rem;
+		padding-inline: 2rem;
+	}
+}

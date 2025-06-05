@@ -1,5 +1,8 @@
 /** @type {import('jest').Config} */
 import type { Config } from 'jest';
+import { pathsToModuleNameMapper } from 'ts-jest';
+
+import { compilerOptions } from './tsconfig.json';
 
 const config: Config = {
 	preset: 'jest-preset-angular',
@@ -18,12 +21,9 @@ const config: Config = {
 	moduleFileExtensions: ['ts', 'html', 'js', 'json', 'mjs'],
 	testMatch: ['**/+(*.)+(spec).+(ts)'],
 	globals: {},
-	moduleNameMapper: {
-		'@app/(.*)': '<rootDir>/src/app/$1',
-		'@core/(.*)': '<rootDir>/src/app/core/$1',
-		'@shared/(.*)': '<rootDir>/src/app/shared/$1',
-		'@store/(.*)': '<rootDir>/src/app/store/$1'
-	}
+	moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths as Record<string, string[]>, {
+		prefix: '<rootDir>/src/'
+	})
 };
 
 export default config;

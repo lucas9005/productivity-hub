@@ -1,0 +1,28 @@
+<header class="landing-page-header" role="banner">
+	<div class="landing-page-branding">
+		<img src="assets/images/brand/logo.svg" alt="Productivity Hub logo" />
+		<h1>Productivity Hub</h1>
+	</div>
+	<button mat-stroked-button aria-label="Login to your account" [routerLink]="['/dashboard']">Login</button>
+</header>
+<section class="landing-page-section" role="region">
+	<h2>All your productivity tools in one place.</h2>
+	<p>Manage tasks, finances, recipes, travel plans, and real-time conversations — all with a single, streamlined platform.</p>
+</section>
+<main class="landing-page-main" role="main">
+	@for (card of featureCards; track card) {
+		<mat-card class="landing-page-card {{ card.className }}-card" appearance="outlined">
+			<mat-card-header>
+				<mat-card-title role="heading" [attr.aria-level]="3">
+					<mat-icon [fontIcon]="card.icon" [attr.aria-label]="card.label" aria-hidden="false"></mat-icon>
+					<span>{{ card.title }}</span>
+				</mat-card-title>
+			</mat-card-header>
+			<img mat-card-image [src]="card.src" [alt]="card.alt" />
+			<mat-card-content>
+				<p>{{ card.content }}</p>
+			</mat-card-content>
+		</mat-card>
+	}
+</main>
+<app-footer></app-footer>

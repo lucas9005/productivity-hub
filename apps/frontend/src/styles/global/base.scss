@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Global Base Styles
+   --------------------------------------------------------------------------
+   Typography, background, anchors, and root-level layout helpers
+   ========================================================================== */
+
+body {
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: var(--mat-sys-on-surface);
+	background-color: var(--mat-sys-background);
+}
+
+a {
+	color: var(--mat-sys-on-surface);
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+#app,
+app-root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}

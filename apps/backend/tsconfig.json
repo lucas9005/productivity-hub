@@ -4,8 +4,6 @@
 		"module": "commonjs",
 		"target": "ES2023",
 		"noEmit": true,
-		"esModuleInterop": true,
-		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"types": ["node"]
 	}

@@ -1,0 +1,137 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100%;
+	max-width: 1920px;
+	margin-inline: auto;
+}
+
+.landing-page-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding-block: 2rem 1rem;
+	padding-inline: 1rem;
+}
+
+.landing-page-branding {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.landing-page-branding img {
+	height: 1.75rem;
+	width: auto;
+	display: block;
+}
+
+.landing-page-branding h1 {
+	font-size: 1.75rem;
+	margin: 0;
+}
+
+.landing-page-header button {
+	width: 1.75rem;
+}
+
+.landing-page-section {
+	padding: 1rem;
+}
+
+.landing-page-section h2,
+.landing-page-section p {
+	font-size: 1rem;
+	line-height: 1.5;
+	text-align: center;
+	margin: 0;
+}
+
+.landing-page-main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.landing-page-card {
+	width: 100%;
+	max-width: 600px;
+	background-color: var(--mat-sys-surface-bright);
+}
+
+.task-card mat-icon {
+	color: #542ed6;
+}
+
+.finance-card mat-icon {
+	color: #3fc07c;
+}
+
+.recipe-card mat-icon {
+	color: #ffd700;
+}
+
+.travel-card mat-icon {
+	color: #00bfff;
+}
+
+.chat-card mat-icon {
+	color: #db7093;
+}
+
+.landing-page-card mat-card-header {
+	padding: 1rem;
+}
+
+.landing-page-card mat-card-title {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.landing-page-card mat-icon {
+	font-size: 40px;
+	height: auto;
+	width: auto;
+	margin-right: 0.5rem;
+}
+
+@media (min-width: 600px) {
+	.landing-page-header {
+		padding: 2rem;
+	}
+
+	.landing-page-branding img {
+		height: 3rem;
+	}
+
+	.landing-page-branding h1 {
+		font-size: 3rem;
+	}
+
+	.landing-page-header button {
+		width: auto;
+	}
+
+	.landing-page-section {
+		padding: 2rem;
+	}
+	.landing-page-section h2,
+	.landing-page-section p {
+		font-size: 1.5rem;
+	}
+
+	.landing-page-main {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		align-items: stretch;
+		justify-items: center;
+		gap: 2rem;
+		padding: 2rem;
+	}
+}

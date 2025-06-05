@@ -4,10 +4,14 @@
 		"module": "ES2022",
 		"target": "ES2022",
 		"noEmit": true,
-		"esModuleInterop": true,
-		"experimentalDecorators": true,
 		"importHelpers": true,
-		"isolatedModules": true
+		"isolatedModules": true,
+		"baseUrl": "./src",
+		"paths": {
+			"@shared/*": ["shared/*"],
+			"@core/*": ["core/*"],
+			"@features/*": ["features/*"]
+		}
 	},
 	"angularCompilerOptions": {
 		"enableI18nLegacyMessageIdFormat": false,
