@@ -13,6 +13,20 @@ export const routes: Routes = [
 		pathMatch: 'full'
 	},
 
+	// Loads all post-login pages through the LayoutComponent
+	{
+		path: '',
+		loadComponent: () => import('@shared/components/layout/layout.component').then((component) => component.LayoutComponent),
+		children: [
+			// Loads the Dashboard Page at /dashboard
+			{
+				path: 'dashboard',
+				loadComponent: () => import('@core/dashboard-page/dashboard-page.component').then((component) => component.DashboardPageComponent),
+				pathMatch: 'full'
+			}
+		]
+	},
+
 	// Fallback: redirects unknown routes to the root
 	{
 		path: '**',

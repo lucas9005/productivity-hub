@@ -3,31 +3,33 @@
 	flex-direction: column;
 	min-height: 100vh;
 	width: 100%;
-	max-width: 1600px;
+	max-width: 1920px;
 	margin-inline: auto;
 }
 
 .landing-page-header {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	padding-block: 2rem 1rem;
 	padding-inline: 1rem;
 }
 
-.landing-page-header .branding {
+.landing-page-branding {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	gap: 0.5rem;
 }
 
-.landing-page-header .branding img {
+.landing-page-branding img {
 	height: 1.75rem;
 	width: auto;
 	display: block;
 }
 
-.landing-page-header h1 {
+.landing-page-branding h1 {
 	font-size: 1.75rem;
 	margin: 0;
 }
@@ -88,6 +90,7 @@
 
 .landing-page-card mat-card-title {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 }
 
@@ -103,11 +106,11 @@
 		padding: 2rem;
 	}
 
-	.landing-page-header .branding img {
+	.landing-page-branding img {
 		height: 3rem;
 	}
 
-	.landing-page-header h1 {
+	.landing-page-branding h1 {
 		font-size: 3rem;
 	}
 

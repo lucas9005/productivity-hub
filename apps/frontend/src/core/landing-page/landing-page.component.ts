@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,10 +11,14 @@ import { FeatureCard } from '@shared/models/feature-card.model';
  *
  * Serves as the entry screen of the application when accessed at the root route (`'/'`).
  * Displays the app introduction and visually highlights the five app features.
+ *
+ * @example
+ * <app-landing-page></app-landing-page>
  */
 @Component({
 	selector: 'app-landing-page',
-	imports: [RouterLink, MatButtonModule, MatCardModule, MatIconModule, FooterComponent],
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	imports: [MatButtonModule, MatCardModule, MatIconModule, RouterLink, FooterComponent],
 	templateUrl: './landing-page.component.html',
 	styleUrl: './landing-page.component.scss'
 })

@@ -12,6 +12,7 @@
 
 .footer-nav {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	gap: 0.5rem;
@@ -22,7 +23,7 @@
 	height: auto;
 }
 
-footer p {
+.footer-copyright {
 	margin: 0;
 }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SocialLink } from '@shared/models/social-link.model';
 
 /**
@@ -12,6 +12,7 @@ import { SocialLink } from '@shared/models/social-link.model';
  */
 @Component({
 	selector: 'app-footer',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [],
 	templateUrl: './footer.component.html',
 	styleUrl: './footer.component.scss'

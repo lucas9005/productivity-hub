@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer" role="contentinfo">
 	<nav class="footer-nav" aria-label="Social media links">
 		@for (link of socialLinks; track link) {
 			<a [href]="link.href" target="_blank" rel="noopener">
@@ -7,7 +7,7 @@
 		}
 	</nav>
 
-	<p>
+	<p class="footer-copyright">
 		© Productivity Hub 2025 —
 		<a href="https://github.com/lucas9005/productivity-hub/blob/dev/LICENSE.md" target="_blank" rel="noopener">MIT License</a>
 	</p>
