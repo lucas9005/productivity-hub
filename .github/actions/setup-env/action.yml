@@ -1,0 +1,23 @@
+name: 🛠 Setup Environment
+description: |
+  Setup Environment Steps: Setup Bun, Restore Bun Cache, and Install Dependencies.
+
+runs:
+  using: 'composite'
+  steps:
+    - name: ⚡ Setup Bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: latest
+
+    - name: 🔄 Restore Bun Cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.bun/install/cache
+        key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-bun-
+
+    - name: 📦 Install Dependencies
+      run: bun run install:dependencies
+      shell: bash
