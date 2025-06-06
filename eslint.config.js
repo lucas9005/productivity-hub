@@ -158,6 +158,7 @@ export default [
 
 			// Test output
 			'**/coverage/',
+			'**/playwright/',
 
 			// Docs output
 			'**/documentation/',

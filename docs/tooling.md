@@ -2,18 +2,19 @@
 
 ## Tooling Overview
 
-| Tool            | Scope              | Details                                |
-| --------------- | ------------------ | -------------------------------------- |
+| Tool            | Scope              | Details                                                   |
+| --------------- | ------------------ | --------------------------------------------------------- |
 | **Bun**         | Global             | Package manager for local development and project scripts |
-| **Git Hooks**   | Global             | Prepare script configures hooks for quality enforcement |
-| **Husky**       | Global             | Git hooks for pre-commit and pre-push checks |
+| **Git Hooks**   | Global             | Prepare script configures hooks for quality enforcement   |
+| **Husky**       | Global             | Git hooks for pre-commit and pre-push checks              |
 | **Lint-Staged** | Global             | Formats and lints only staged files during Git operations |
-| **Prettier**    | Global             | Enforced formatting via CLI and Husky hooks |
+| **Prettier**    | Global             | Enforced formatting via CLI and Husky hooks               |
 | **ESLint**      | Global             | Flat config enforcing Angular, TypeScript, and HTML rules |
-| **Jest**        | Frontend & Backend | Unit testing and E2E testing with code coverage |
-| **Compodoc**    | Frontend           | Angular documentation generation |
-| **Typedoc**     | Backend            | NestJS API static documentation generator |
-| **Swagger**     | Backend            | Interactive API explorer at `/api-docs` |
+| **Jest**        | Frontend & Backend | Unit testing and E2E testing with code coverage           |
+| **Playwright**  | Frontend           | E2E testing                                               |
+| **Compodoc**    | Frontend           | Angular documentation generation                          |
+| **Typedoc**     | Backend            | NestJS API static documentation generator                 |
+| **Swagger**     | Backend            | Interactive API explorer at `/api-docs`                   |
 
 ## Formatting and Linting Rules
 
