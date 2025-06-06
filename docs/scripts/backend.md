@@ -3,7 +3,7 @@
 ## `start:dev`
 
 ```sh
-ts-node-dev --respawn --transpile-only --project tsconfig.dev.json src/main.ts
+bun run start:dev
 ```
 
 > Start the NestJS app using the development configuration with live reload.
@@ -11,7 +11,7 @@ ts-node-dev --respawn --transpile-only --project tsconfig.dev.json src/main.ts
 ## `start:prod`
 
 ```sh
-ts-node-dev --respawn --transpile-only --project tsconfig.prod.json src/main.ts
+bun run start:prod
 ```
 
 > Start the NestJS app using the production configuration with live reload.
@@ -19,7 +19,7 @@ ts-node-dev --respawn --transpile-only --project tsconfig.prod.json src/main.ts
 ## `build:dev`
 
 ```sh
-tsc --project tsconfig.dev.json
+bun run build:dev
 ```
 
 > Build the NestJS app using the development configuration.
@@ -27,7 +27,7 @@ tsc --project tsconfig.dev.json
 ## `build:prod`
 
 ```sh
-tsc --project tsconfig.prod.json
+bun run build:prod
 ```
 
 > Build the NestJS app using the production configuration.
@@ -35,7 +35,7 @@ tsc --project tsconfig.prod.json
 ## `test`
 
 ```sh
-jest
+bun run test
 ```
 
 > Run unit tests using Jest.
@@ -43,7 +43,7 @@ jest
 ## `test:watch`
 
 ```sh
-jest --watch
+bun run test:watch
 ```
 
 > Run unit tests with live reload.
@@ -51,7 +51,7 @@ jest --watch
 ## `test:coverage`
 
 ```sh
-jest --coverage
+bun run test:coverage
 ```
 
 > Run unit tests and generate code coverage report.
@@ -59,7 +59,7 @@ jest --coverage
 ## `test:ci`
 
 ```sh
-jest --ci --coverage --runInBand
+bun run test:ci
 ```
 
 > Run unit tests in CI mode with sequential execution and generate code coverage report.
@@ -67,7 +67,7 @@ jest --ci --coverage --runInBand
 ## `test:e2e`
 
 ```sh
-jest --config ./e2e/jest-e2e.json
+bun run test:e2e
 ```
 
 > Run end-to-end tests using a dedicated Jest config.
@@ -75,7 +75,7 @@ jest --config ./e2e/jest-e2e.json
 ## `docs`
 
 ```sh
-bun run docs:build && bunx serve -l 4000 documentation
+bun run docs
 ```
 
 > Build and serve the NestJS documentation using Typedoc and a static server.
@@ -83,7 +83,7 @@ bun run docs:build && bunx serve -l 4000 documentation
 ## `docs:build`
 
 ```sh
-typedoc --options typedoc.config.js
+bun run docs:build
 ```
 
 > Build the NestJS documentation using Typedoc.

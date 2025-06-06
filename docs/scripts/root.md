@@ -3,7 +3,7 @@
 ## `prepare`
 
 ```sh
-git config core.hooksPath .husky
+bun run prepare
 ```
 
 > Configure Git to use `.husky` directory for managing Git hooks.
@@ -11,7 +11,7 @@ git config core.hooksPath .husky
 ## `install:dependencies`
 
 ```sh
-bun install && (cd apps/frontend && bun install) && (cd apps/backend && bun install)
+bun run install:dependencies
 ```
 
 > Install all dependencies at the root and apps.
@@ -19,7 +19,7 @@ bun install && (cd apps/frontend && bun install) && (cd apps/backend && bun inst
 ## `clean:dependencies`
 
 ```sh
-rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock
+bun run clean:dependencies
 ```
 
 > Remove all installed dependencies and lock files across root and apps.
@@ -27,15 +27,15 @@ rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock
 ## `clean:artifacts`
 
 ```sh
-rm -rf apps/*/dist apps/*/coverage apps/*/documentation apps/frontend/.angular
+bun run clean:artifacts
 ```
 
-> Remove all generated artifacts including build outputs, test coverage, and generated documentation.
+> Remove all generated artifacts including build outputs, test coverage, e2e artifacts and generated documentation.
 
 ## `clean:full`
 
 ```sh
-bun run clean:dependencies && bun run clean:artifacts
+bun run clean:full
 ```
 
 > Remove all installed dependencies and generated artifacts.
@@ -43,7 +43,7 @@ bun run clean:dependencies && bun run clean:artifacts
 ## `reset`
 
 ```sh
-bun run clean:full && bun run install:dependencies
+bun run reset
 ```
 
 > Remove all installed dependencies and generated artifacts, then reinstall all dependencies.
@@ -51,7 +51,7 @@ bun run clean:full && bun run install:dependencies
 ## `format`
 
 ```sh
-prettier --write "**/*.{ts,js,json,html,scss,css,md,yml,yaml}"
+bun run format
 ```
 
 > Format the entire codebase using Prettier.
@@ -59,7 +59,7 @@ prettier --write "**/*.{ts,js,json,html,scss,css,md,yml,yaml}"
 ## `format:check`
 
 ```sh
-prettier --check "**/*.{ts,js,json,html,scss,css,md,yml,yaml}"
+bun run format:check
 ```
 
 > Check formatting in the entire codebase using Prettier.
@@ -67,7 +67,7 @@ prettier --check "**/*.{ts,js,json,html,scss,css,md,yml,yaml}"
 ## `lint`
 
 ```sh
-eslint "**/*.{ts,html}" --fix
+bun run lint
 ```
 
 > Lint the entire codebase using ESLint.
@@ -75,7 +75,7 @@ eslint "**/*.{ts,html}" --fix
 ## `lint:check`
 
 ```sh
-eslint "**/*.{ts,html}"
+bun run lint:check
 ```
 
 > Check linting in the entire codebase using ESLint.

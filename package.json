@@ -7,7 +7,7 @@
 		"prepare": "git config core.hooksPath .husky",
 		"install:dependencies": "bun install && (cd apps/frontend && bun install) && (cd apps/backend && bun install)",
 		"clean:dependencies": "rm -rf node_modules bun.lock apps/*/node_modules apps/*/bun.lock",
-		"clean:artifacts": "rm -rf apps/*/dist apps/*/coverage apps/*/documentation apps/frontend/.angular",
+		"clean:artifacts": "rm -rf apps/*/dist apps/*/coverage apps/*/documentation apps/frontend/playwright apps/frontend/.angular",
 		"clean:full": "bun run clean:dependencies && bun run clean:artifacts",
 		"reset": "bun run clean:full && bun run install:dependencies",
 		"format": "prettier --write \"**/*.{ts,js,json,html,scss,css,md,yml,yaml}\"",

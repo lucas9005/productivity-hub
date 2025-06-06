@@ -19,7 +19,7 @@ const config: Config = {
 		]
 	},
 	moduleFileExtensions: ['ts', 'html', 'js', 'json', 'mjs'],
-	testMatch: ['**/+(*.)+(spec).+(ts)'],
+	testMatch: ['<rootDir>/src/**/*.spec.ts'],
 	globals: {},
 	moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths as Record<string, string[]>, {
 		prefix: '<rootDir>/src/'
