@@ -14,7 +14,6 @@
 		"test:unit:watch": "jest --watch",
 		"test:unit:coverage": "jest --coverage",
 		"test:unit:ci": "jest --ci --runInBand --coverage",
-		"test:ci": "jest --ci --runInBand --coverage",
 		"test:e2e": "bun x playwright test",
 		"test:e2e:ui": "bun x playwright test --ui",
 		"test:e2e:debug": "bun x playwright test --debug",

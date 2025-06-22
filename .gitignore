@@ -20,5 +20,8 @@ apps/frontend/.angular/
 # Tool logs
 **/*.log
 
+# Environment files
+**/environment.prod.ts
+
 # macOS system files
 **/.DS_Store

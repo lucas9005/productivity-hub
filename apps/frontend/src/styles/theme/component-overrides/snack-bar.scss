@@ -1,0 +1,37 @@
+@use '@angular/material' as mat;
+
+.notification-success {
+	@include mat.snack-bar-overrides(
+		(
+			container-color: #3fc07c,
+			supporting-text-color: #ffffff
+		)
+	);
+}
+
+.notification-error {
+	@include mat.snack-bar-overrides(
+		(
+			container-color: #db7093,
+			supporting-text-color: #ffffff
+		)
+	);
+}
+
+.notification-warning {
+	@include mat.snack-bar-overrides(
+		(
+			container-color: #ffd700,
+			supporting-text-color: #ffffff
+		)
+	);
+}
+
+.notification-info {
+	@include mat.snack-bar-overrides(
+		(
+			container-color: #ffffff,
+			supporting-text-color: #000000
+		)
+	);
+}
