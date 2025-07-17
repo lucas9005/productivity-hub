@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
-import { NotificationIcon, NotificationType } from '@shared/models/notification.model';
+import { NotificationData } from '@shared/models/notification.model';
 
 /**
  * Global notification component.
@@ -24,15 +24,12 @@ export class NotificationComponent {
 	/**
 	 * Injected snackbar data containing the notification type, icon, and message.
 	 */
-	public readonly _snackBarData = inject(MAT_SNACK_BAR_DATA) as {
-		type: NotificationType;
-		icon: NotificationIcon;
-		message: string;
-	};
+	public readonly _snackBarData: NotificationData = inject(MAT_SNACK_BAR_DATA);
+
 	/**
 	 * Injected snackbar reference for programmatic dismissal.
 	 */
-	private readonly _snackBarRef = inject(MatSnackBarRef);
+	private readonly _snackBarRef: MatSnackBarRef<NotificationComponent> = inject(MatSnackBarRef);
 
 	/**
 	 * Closes the currently displayed snackbar.

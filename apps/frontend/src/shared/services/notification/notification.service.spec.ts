@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { MatSnackBar, MatSnackBarConfig, MatSnackBarRef } from '@angular/material/snack-bar';
 import { NotificationComponent } from '@shared/components/notification/notification.component';
-import { NotificationIcons, NotificationTypes } from '@shared/models/notification.model';
+import { NotificationIcons, NotificationTypes, QueuedNotificationData } from '@shared/models/notification.model';
 import { Subject, of } from 'rxjs';
 
 import { NotificationService } from './notification.service';
@@ -19,6 +19,10 @@ describe('NotificationService', () => {
 			providers: [NotificationService, { provide: MatSnackBar, useValue: mockMatSnackBar }]
 		});
 		service = TestBed.inject(NotificationService);
+	});
+
+	afterEach(() => {
+		jest.clearAllMocks();
 	});
 
 	it('should show a notification', () => {
@@ -166,7 +170,7 @@ describe('NotificationService', () => {
 			horizontalPosition: 'center',
 			verticalPosition: 'bottom'
 		};
-		const notificationData = {
+		const notificationData: QueuedNotificationData = {
 			type: notificationType,
 			icon: NotificationIcons[notificationType],
 			message: notificationMessage,

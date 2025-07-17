@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { environment } from '@environments/environment';
 import { NotificationComponent } from '@shared/components/notification/notification.component';
-import { NotificationIcon, NotificationIcons, NotificationType, NotificationTypes } from '@shared/models/notification.model';
+import { NotificationIcons, NotificationType, NotificationTypes, QueuedNotificationData } from '@shared/models/notification.model';
 
 /**
  * Global notification service.
@@ -19,7 +19,7 @@ export class NotificationService {
 	/**
 	 * Injected snackbar service for notification management.
 	 */
-	private readonly _snackBar = inject(MatSnackBar);
+	private readonly _snackBar: MatSnackBar = inject(MatSnackBar);
 
 	/**
 	 * Default notification duration (in milliseconds) for displaying notifications.
@@ -34,7 +34,7 @@ export class NotificationService {
 	/**
 	 * Queue of pending notifications to be displayed.
 	 */
-	private queue: Array<{ type: NotificationType; icon: NotificationIcon; message: string; config?: Partial<MatSnackBarConfig> }> = [];
+	private queue: QueuedNotificationData[] = [];
 
 	/**
 	 * Message of the last displayed notification.
@@ -99,14 +99,17 @@ export class NotificationService {
 		this.lastNotificationDeduplicationWindow = config?.duration ?? this.defaultNotificationDeduplicationWindow;
 		this.isShowing = true;
 
-		const snackBarRef = this._snackBar.openFromComponent(NotificationComponent as ComponentType<NotificationComponent>, {
-			data: { type, icon, message },
-			duration: this.defaultNotificationDuration,
-			horizontalPosition: 'center',
-			verticalPosition: 'bottom',
-			panelClass: [`notification-${type}`],
-			...config
-		});
+		const snackBarRef = this._snackBar.openFromComponent(
+			NotificationComponent as ComponentType<NotificationComponent>,
+			{
+				data: { type, icon, message },
+				duration: this.defaultNotificationDuration,
+				horizontalPosition: 'center',
+				verticalPosition: 'bottom',
+				panelClass: [`notification-${type}`],
+				...config
+			} as MatSnackBarConfig
+		);
 
 		snackBarRef.afterDismissed().subscribe(() => {
 			this.isShowing = false;
@@ -121,7 +124,7 @@ export class NotificationService {
 	 * @param message - The message displayed.
 	 */
 	private logNotification(type: NotificationType, message: string): void {
-		// TODO [Logging]: Replace this with Sentry/Datadog integration when ready.
+		// TODO [Logging]: Move this to centralized LoggerService once implemented
 		// eslint-disable-next-line no-console
 		console.debug(`[NotificationLog] ${type.toUpperCase()}: ${message}`);
 	}
