@@ -1,19 +1,19 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 /**
- * Guarded dashboard page component.
+ * Guarded main dashboard page component.
  *
  * Serves as the entry screen of the application after login at the route (`'/dashboard'`).
  * Displays the features widgets and visually highlights important information.
  *
  * @example
- * <app-dashboard-page></app-dashboard-page>
+ * <app-dashboard></app-dashboard>
  */
 @Component({
-	selector: 'app-dashboard-page',
+	selector: 'app-dashboard',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [],
-	templateUrl: './dashboard-page.component.html',
-	styleUrl: './dashboard-page.component.scss'
+	templateUrl: './dashboard.component.html',
+	styleUrl: './dashboard.component.scss'
 })
-export class DashboardPageComponent {}
+export class DashboardComponent {}

@@ -69,9 +69,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -96,9 +96,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -125,7 +125,7 @@ describe('errorInterceptor', () => {
 				expect(err).toBeInstanceOf(HttpErrorResponse);
 				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the fallback error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -147,9 +147,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -171,9 +171,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -195,9 +195,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -219,9 +219,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -243,9 +243,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -270,9 +270,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -297,9 +297,9 @@ describe('errorInterceptor', () => {
 			error: (err: HttpErrorResponse) => {
 				// Assert that the error is an instance of HttpErrorResponse
 				expect(err).toBeInstanceOf(HttpErrorResponse);
-				// Assert that console error was triggered one time with the expected error message
+				// Assert that console error was triggered one time with the expected error
 				expect(console.error).toHaveBeenCalledTimes(1);
-				expect(console.error).toHaveBeenCalledWith('HTTP error intercepted:', error);
+				expect(console.error).toHaveBeenCalledWith(`[errorInterceptor] ${error.status}:`, error);
 				// Assert that notify was triggered one time with the expected error message
 				expect(mockNotify).toHaveBeenCalledTimes(1);
 				expect(mockNotify).toHaveBeenCalledWith('error', errorMessage);
@@ -337,7 +337,7 @@ describe('errorInterceptor', () => {
 					expect(err).toBeInstanceOf(HttpErrorResponse);
 					// Assert that console debug was triggered one time with the expected error message
 					expect(console.debug).toHaveBeenCalledTimes(1);
-					expect(console.debug).toHaveBeenCalledWith('[HttpErrorLog] 500:', error);
+					expect(console.debug).toHaveBeenCalledWith('[errorInterceptor] 500:', error);
 				}
 			});
 		});

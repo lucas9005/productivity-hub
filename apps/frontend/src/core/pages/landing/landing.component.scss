@@ -7,7 +7,7 @@
 	margin-inline: auto;
 }
 
-.landing-page-header {
+.landing-header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -16,41 +16,41 @@
 	padding-inline: 1rem;
 }
 
-.landing-page-branding {
+.landing-branding {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	gap: 0.5rem;
 }
 
-.landing-page-branding img {
+.landing-branding img {
 	height: 1.75rem;
 	width: auto;
 	display: block;
 }
 
-.landing-page-branding h1 {
+.landing-branding h1 {
 	font-size: 1.75rem;
 	margin: 0;
 }
 
-.landing-page-header button {
+.landing-header button {
 	width: 1.75rem;
 }
 
-.landing-page-section {
+.landing-section {
 	padding: 1rem;
 }
 
-.landing-page-section h2,
-.landing-page-section p {
+.landing-section h2,
+.landing-section p {
 	font-size: 1rem;
 	line-height: 1.5;
 	text-align: center;
 	margin: 0;
 }
 
-.landing-page-main {
+.landing-main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -58,7 +58,7 @@
 	padding: 1rem;
 }
 
-.landing-page-card {
+.landing-card {
 	width: 100%;
 	max-width: 600px;
 	background-color: var(--mat-sys-surface-bright);
@@ -84,17 +84,17 @@
 	color: #db7093;
 }
 
-.landing-page-card mat-card-header {
+.landing-card mat-card-header {
 	padding: 1rem;
 }
 
-.landing-page-card mat-card-title {
+.landing-card mat-card-title {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
 
-.landing-page-card mat-icon {
+.landing-card mat-icon {
 	font-size: 40px;
 	height: auto;
 	width: auto;
@@ -102,31 +102,31 @@
 }
 
 @media (min-width: 600px) {
-	.landing-page-header {
+	.landing-header {
 		padding: 2rem;
 	}
 
-	.landing-page-branding img {
+	.landing-branding img {
 		height: 3rem;
 	}
 
-	.landing-page-branding h1 {
+	.landing-branding h1 {
 		font-size: 3rem;
 	}
 
-	.landing-page-header button {
+	.landing-header button {
 		width: auto;
 	}
 
-	.landing-page-section {
+	.landing-section {
 		padding: 2rem;
 	}
-	.landing-page-section h2,
-	.landing-page-section p {
+	.landing-section h2,
+	.landing-section p {
 		font-size: 1.5rem;
 	}
 
-	.landing-page-main {
+	.landing-main {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		align-items: stretch;

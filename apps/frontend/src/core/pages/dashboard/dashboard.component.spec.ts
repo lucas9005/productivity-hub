@@ -1,12 +1,12 @@
 import { render } from '@testing-library/angular';
 
-import { DashboardPageComponent } from './dashboard-page.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('DashboardPageComponent', () => {
+describe('DashboardComponent', () => {
 	let container: Element;
 
 	beforeEach(async () => {
-		const rendered = await render(DashboardPageComponent);
+		const rendered = await render(DashboardComponent);
 		container = rendered.container;
 	});
 

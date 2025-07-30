@@ -7,22 +7,22 @@ import { FooterComponent } from '@shared/components/footer/footer.component';
 import { FeatureCard } from '@shared/models/feature-card.model';
 
 /**
- * Public landing page component.
+ * Public main landing page component.
  *
  * Serves as the entry screen of the application when accessed at the root route (`'/'`).
  * Displays the app introduction and visually highlights the five app features.
  *
  * @example
- * <app-landing-page></app-landing-page>
+ * <app-landing></app-landing>
  */
 @Component({
-	selector: 'app-landing-page',
+	selector: 'app-landing',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [MatButtonModule, MatCardModule, MatIconModule, RouterLink, FooterComponent],
-	templateUrl: './landing-page.component.html',
-	styleUrl: './landing-page.component.scss'
+	templateUrl: './landing.component.html',
+	styleUrl: './landing.component.scss'
 })
-export class LandingPageComponent {
+export class LandingComponent {
 	/**
 	 * List of feature cards displayed in the UI.
 	 */

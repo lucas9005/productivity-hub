@@ -8,8 +8,8 @@ import { catchError, throwError } from 'rxjs';
 /**
  * Global HTTP error interceptor.
  *
- * Skips handling for requests marked with the `SKIP_ERROR` context token.
- * Intercepts all HTTP errors and maps known status codes to user-friendly messages.
+ * Intercepts all HTTP requests and maps known error status codes to user-friendly messages.
+ * Skips handling requests marked with the `SKIP_ERROR` context token.
  * Notifies users using the `NotificationService`.
  *
  * @param req - The outgoing HTTP request.
@@ -25,11 +25,11 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
 	return next(req).pipe(
 		catchError((error: HttpErrorResponse) => {
 			if (!environment.production) {
-				console.error('HTTP error intercepted:', error);
+				console.error(`[errorInterceptor] ${error.status}:`, error);
 			}
 
 			if (environment.production && environment.enableExternalLogging && error.status >= 500) {
-				logHttpError(error.status, error);
+				logError(error.status, error);
 			}
 
 			let message: string;
@@ -112,13 +112,14 @@ function extractErrorMessage(error: HttpErrorResponse): string | null {
 }
 
 /**
- * Send HTTP errors to external logging service
+ * Log errors to external logging service
  *
  * @param status - The HTTP status code of the error.
  * @param error - The HTTP error response returned from the backend.
  */
-function logHttpError(status: number, error: HttpErrorResponse): void {
+function logError(status: number, error: HttpErrorResponse): void {
 	// TODO [Logging]: Move this to centralized LoggerService once implemented
+	// including contextual info (user, app version, route, timestamp, etc)
 	// eslint-disable-next-line no-console
-	console.debug(`[HttpErrorLog] ${status}:`, error);
+	console.debug(`[errorInterceptor] ${status}:`, error);
 }

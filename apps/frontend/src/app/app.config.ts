@@ -1,8 +1,9 @@
 import { HttpInterceptorFn, provideHttpClient, withInterceptors } from '@angular/common/http';
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, ErrorHandler, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
-import { errorInterceptor } from '@shared/interceptors/error/error.interceptor';
+import { GlobalErrorHandler } from '@core/handlers/error/global-error.handler';
+import { errorInterceptor } from '@core/interceptors/error/error.interceptor';
 
 import { routes } from './app.routes';
 
@@ -14,6 +15,7 @@ import { routes } from './app.routes';
  * - Angular animations support (required for Angular Material).
  * - Application-wide router configuration.
  * - Global HTTP interceptor for centralized error handling.
+ * - Global error handler for uncaught Angular runtime exceptions.
  */
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -25,6 +27,12 @@ export const appConfig: ApplicationConfig = {
 		provideRouter(routes),
 
 		// Global HTTP configuration
-		provideHttpClient(withInterceptors([errorInterceptor as HttpInterceptorFn]))
+		provideHttpClient(withInterceptors([errorInterceptor as HttpInterceptorFn])),
+
+		// Global error handler
+		{
+			provide: ErrorHandler,
+			useClass: GlobalErrorHandler
+		}
 	]
 };

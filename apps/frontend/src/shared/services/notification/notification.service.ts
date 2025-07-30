@@ -70,7 +70,7 @@ export class NotificationService {
 		}
 
 		if (environment.production && environment.enableExternalLogging && (type === NotificationTypes.error || type === NotificationTypes.warning)) {
-			this.logNotification(type, normalizedMessage);
+			this.logError(type, normalizedMessage);
 		}
 
 		const now = Date.now();
@@ -118,14 +118,15 @@ export class NotificationService {
 	}
 
 	/**
-	 * Send notifications to external logging service
+	 * Log errors to external logging service
 	 *
 	 * @param type - The severity/type of the notification.
 	 * @param message - The message displayed.
 	 */
-	private logNotification(type: NotificationType, message: string): void {
+	private logError(type: NotificationType, message: string): void {
 		// TODO [Logging]: Move this to centralized LoggerService once implemented
+		// including contextual info (user, app version, route, timestamp, etc)
 		// eslint-disable-next-line no-console
-		console.debug(`[NotificationLog] ${type.toUpperCase()}: ${message}`);
+		console.debug(`[NotificationService] ${type.toUpperCase()}: ${message}`);
 	}
 }
