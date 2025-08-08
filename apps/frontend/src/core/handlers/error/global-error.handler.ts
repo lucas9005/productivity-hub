@@ -5,7 +5,7 @@ import { NotificationService } from '@shared/services/notification/notification.
 /**
  * Global Angular error handler.
  *
- * Handles all angular errors and displays them depending on environment configuration
+ * Handles all angular errors and logs them depending on environment configuration.
  * Notifies users using the `NotificationService`.
  */
 @Injectable()
