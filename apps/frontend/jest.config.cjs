@@ -1,10 +1,8 @@
+const { pathsToModuleNameMapper } = require('ts-jest');
+const { compilerOptions } = require('./tsconfig.json');
+
 /** @type {import('jest').Config} */
-import type { Config } from 'jest';
-import { pathsToModuleNameMapper } from 'ts-jest';
-
-import { compilerOptions } from './tsconfig.json';
-
-const config: Config = {
+module.exports = {
 	preset: 'jest-preset-angular',
 	setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 	testEnvironment: 'jsdom',
@@ -21,9 +19,7 @@ const config: Config = {
 	moduleFileExtensions: ['ts', 'html', 'js', 'json', 'mjs'],
 	testMatch: ['<rootDir>/src/**/*.spec.ts'],
 	globals: {},
-	moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths as Record<string, string[]>, {
+	moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
 		prefix: '<rootDir>/src/'
 	})
 };
-
-export default config;

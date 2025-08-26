@@ -1,4 +1,4 @@
-import { AppEnvironment } from '@shared/models/environment.model';
+import type { AppEnvironment } from '@shared/models/environment.model';
 
 /**
  * Production environment configuration sample.

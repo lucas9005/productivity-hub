@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { FooterComponent } from '@shared/components/footer/footer.component';
-import { FeatureCard } from '@shared/models/feature-card.model';
+import type { FeatureCard } from '@shared/models/feature-card.model';
 
 /**
  * Public main landing page component.

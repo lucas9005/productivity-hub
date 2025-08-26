@@ -1,4 +1,4 @@
-import { HttpContextToken, HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
+import type { HttpContextToken, HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { environment } from '@environments/environment';
 import { NotificationService } from '@shared/services/notification/notification.service';
@@ -112,7 +112,7 @@ function extractErrorMessage(error: HttpErrorResponse): string | null {
 }
 
 /**
- * Log errors to external logging service
+ * Log errors to external logging service.
  *
  * @param status - The HTTP status code of the error.
  * @param error - The HTTP error response returned from the backend.

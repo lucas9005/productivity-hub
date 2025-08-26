@@ -1,8 +1,9 @@
 import { inject } from '@angular/core';
 import { environment } from '@environments/environment';
-import { HandleErrorConfig } from '@shared/models/error.model';
+import type { HandleErrorConfig } from '@shared/models/error.model';
 import { NotificationService } from '@shared/services/notification/notification.service';
-import { OperatorFunction, of, throwError } from 'rxjs';
+import type { OperatorFunction } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 /**
@@ -11,6 +12,9 @@ import { catchError } from 'rxjs/operators';
  * Handles RxJS errors and logs them depending on environment configuration.
  * Notifies users using the `NotificationService` depending on `HandleErrorConfig`.
  * Returns a fallback value or rethrows the error depending on `HandleErrorConfig`.
+ *
+ * @param config - The handle error configuration.
+ * @returns A operator function.
  */
 export function handleError<T>(config: HandleErrorConfig<T>): OperatorFunction<T, T> {
 	/**
@@ -22,7 +26,7 @@ export function handleError<T>(config: HandleErrorConfig<T>): OperatorFunction<T
 	/**
 	 * Handle the RxJS runtime errors.
 	 *
-	 * @param error - The RxJS error that ocurred in the frontend.
+	 * @param error - The RxJS error that occurred in the frontend.
 	 */
 	return catchError((error) => {
 		if (!environment.production) {
@@ -46,10 +50,10 @@ export function handleError<T>(config: HandleErrorConfig<T>): OperatorFunction<T
 }
 
 /**
- * Log errors to external logging service
+ * Log errors to external logging service.
  *
  * @param context - The context of the error.
- * @param error - The RxJS error that ocurred in the frontend.
+ * @param error - The RxJS error that occurred in the frontend.
  */
 function logError(context: string, error: unknown): void {
 	// TODO [Logging]: Move this to centralized LoggerService once implemented

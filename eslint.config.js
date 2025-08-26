@@ -89,7 +89,29 @@ export default [
 			'@typescript-eslint/no-empty-function': ['warn', { allow: ['constructors'] }],
 			'@typescript-eslint/no-floating-promises': 'warn',
 			'@typescript-eslint/no-unsafe-argument': 'warn',
-			'no-unused-vars': 'off',
+			'@typescript-eslint/semi': ['error', 'always'],
+			'@typescript-eslint/comma-dangle': ['error', 'never'],
+			'@typescript-eslint/member-delimiter-style': [
+				'error',
+				{
+					multiline: { delimiter: 'semi', requireLast: true },
+					singleline: { delimiter: 'semi', requireLast: true }
+				}
+			],
+			'@typescript-eslint/consistent-type-exports': [
+				'error',
+				{
+					fixMixedExportsWithInlineTypeSpecifier: true
+				}
+			],
+			'@typescript-eslint/consistent-type-imports': [
+				'error',
+				{
+					prefer: 'type-imports',
+					fixStyle: 'separate-type-imports',
+					disallowTypeAnnotations: false
+				}
+			],
 
 			// Code safety and logic correctness
 			curly: 'error',
@@ -98,12 +120,17 @@ export default [
 			'no-extend-native': 'error',
 			'no-implicit-coercion': 'error',
 			'prefer-const': 'error',
+			'no-extra-semi': 'error',
+			'no-unexpected-multiline': 'error',
+			'quote-props': ['error', 'as-needed'],
+			quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
 
 			// Logging and debugging
-			'no-console': ['warn', { allow: ['warn', 'error'] }],
 			'no-debugger': 'warn',
+			'no-console': ['warn', { allow: ['warn', 'error'] }],
 
-			// Cleanup unused imports
+			// Cleanup unused imports and variables
+			'no-unused-vars': 'off',
 			'unused-imports/no-unused-imports': 'error',
 			'unused-imports/no-unused-vars': [
 				'warn',
@@ -169,5 +196,13 @@ export default [
 			// IDE configs
 			'.vscode/'
 		]
+	},
+
+	// Overrides
+	{
+		files: ['apps/backend/**/*.ts'],
+		rules: {
+			'@typescript-eslint/consistent-type-imports': 'off'
+		}
 	}
 ];

@@ -1,4 +1,5 @@
-import { ErrorHandler, Injectable, inject } from '@angular/core';
+import type { ErrorHandler } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { environment } from '@environments/environment';
 import { NotificationService } from '@shared/services/notification/notification.service';
 
@@ -19,7 +20,7 @@ export class GlobalErrorHandler implements ErrorHandler {
 	/**
 	 * Handle the uncaught angular runtime errors.
 	 *
-	 * @param error - The Angular error that ocurred in the frontend.
+	 * @param error - The Angular error that occurred in the frontend.
 	 */
 	public handleError(error: unknown): void {
 		if (!environment.production) {
@@ -34,9 +35,9 @@ export class GlobalErrorHandler implements ErrorHandler {
 	}
 
 	/**
-	 * Log errors to external logging service
+	 * Log errors to external logging service.
 	 *
-	 * @param error - The Angular error that ocurred in the frontend.
+	 * @param error - The Angular error that occurred in the frontend.
 	 */
 	private logError(error: unknown): void {
 		// TODO [Logging]: Move this to centralized LoggerService once implemented

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SocialLink } from '@shared/models/social-link.model';
+import type { SocialLink } from '@shared/models/social-link.model';
 
 /**
  * Global footer component.

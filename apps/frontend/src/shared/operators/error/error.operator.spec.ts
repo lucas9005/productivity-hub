@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { HandleErrorConfig } from '@shared/models/error.model';
+import type { HandleErrorConfig } from '@shared/models/error.model';
 import { NotificationService } from '@shared/services/notification/notification.service';
 import { throwError } from 'rxjs';
 

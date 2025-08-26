@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
-import { NotificationData } from '@shared/models/notification.model';
+import type { NotificationData } from '@shared/models/notification.model';
 
 /**
  * Global notification component.

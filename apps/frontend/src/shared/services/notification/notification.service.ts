@@ -1,9 +1,11 @@
-import { ComponentType } from '@angular/cdk/portal';
+import type { ComponentType } from '@angular/cdk/portal';
 import { Injectable, inject } from '@angular/core';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import type { MatSnackBarConfig } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '@environments/environment';
 import { NotificationComponent } from '@shared/components/notification/notification.component';
-import { NotificationIcons, NotificationType, NotificationTypes, QueuedNotificationData } from '@shared/models/notification.model';
+import type { NotificationType, QueuedNotificationData } from '@shared/models/notification.model';
+import { NotificationIcons, NotificationTypes } from '@shared/models/notification.model';
 
 /**
  * Global notification service.

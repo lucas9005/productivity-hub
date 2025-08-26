@@ -1,4 +1,5 @@
-import { HttpContext, HttpContextToken, HttpErrorResponse, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
+import type { HttpContextToken, HttpHandlerFn, HttpInterceptorFn } from '@angular/common/http';
+import { HttpContext, HttpErrorResponse, HttpRequest } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { NotificationService } from '@shared/services/notification/notification.service';
 import { SKIP_ERROR } from '@shared/tokens/skip-error.token';

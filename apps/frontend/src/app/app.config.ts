@@ -1,5 +1,7 @@
-import { HttpInterceptorFn, provideHttpClient, withInterceptors } from '@angular/common/http';
-import { ApplicationConfig, ErrorHandler, provideZoneChangeDetection } from '@angular/core';
+import type { HttpInterceptorFn } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import type { ApplicationConfig } from '@angular/core';
+import { ErrorHandler, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { GlobalErrorHandler } from '@core/handlers/error/global-error.handler';
