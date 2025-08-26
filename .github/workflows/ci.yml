@@ -138,6 +138,9 @@ jobs:
       - name: 🛠 Setup Environment
         uses: ./.github/actions/setup-env
 
+      - name: ♻️ Rename prod sample env file
+        run: mv apps/frontend/src/environments/environment.prod.sample.ts apps/frontend/src/environments/environment.prod.ts
+
       - name: 🧾 Build Frontend
         run: cd apps/frontend && bun run build:prod
 

@@ -1,0 +1,9 @@
+<div class="notification-container">
+	<mat-icon [fontIcon]="_snackBarData.icon" [attr.aria-label]="_snackBarData.type + ' icon'" aria-hidden="false"></mat-icon>
+	<p class="notification-message">
+		{{ _snackBarData.message }}
+	</p>
+	<button mat-icon-button aria-label="Close notification" (click)="close()">
+		<mat-icon fontIcon="close"></mat-icon>
+	</button>
+</div>

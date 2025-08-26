@@ -6,8 +6,10 @@
 		"noEmit": true,
 		"importHelpers": true,
 		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
 		"baseUrl": "./src",
 		"paths": {
+			"@environments/*": ["environments/*"],
 			"@shared/*": ["shared/*"],
 			"@core/*": ["core/*"],
 			"@features/*": ["features/*"]

@@ -1,3 +1,6 @@
+/**
+ * Represents a navigation item.
+ */
 export interface NavItem {
 	/**
 	 * Path to the navigation route.

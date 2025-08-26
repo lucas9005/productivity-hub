@@ -1,12 +1,12 @@
 import { render } from '@testing-library/angular';
 
-import { LandingPageComponent } from './landing-page.component';
+import { LandingComponent } from './landing.component';
 
-describe('LandingPageComponent', () => {
+describe('LandingComponent', () => {
 	let container: Element;
 
 	beforeEach(async () => {
-		const rendered = await render(LandingPageComponent);
+		const rendered = await render(LandingComponent);
 		container = rendered.container;
 	});
 

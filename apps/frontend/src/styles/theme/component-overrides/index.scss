@@ -1,7 +1,7 @@
 /*	==========================================================================
-	Global Reset Styles
+	Angular Material Component Overrides Entry Point
 ------------------------------------------------------------------------------
-	Normalize browsers' default style
+	Loads Angular Material component-specific style overrides
 =========================================================================== */
 
-@use 'modern-normalize';
+@forward 'snack-bar';

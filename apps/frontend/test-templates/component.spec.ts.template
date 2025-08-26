@@ -1,21 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { <FeatureComponent> } from './<feature>.component';
+import { render } from '@testing-library/angular';
 
-describe('<FeatureComponent> Component', () => {
-  let component: <FeatureComponent>;
-  let fixture: ComponentFixture<<FeatureComponent>>;
+import { <CustomComponent> } from './<custom>.component';
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [<FeatureComponent>]
-    }).compileComponents();
+describe('<CustomComponent>', () => {
+	let container: Element;
 
-    fixture = TestBed.createComponent(<FeatureComponent>);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(async () => {
+		const rendered = await render(<CustomComponent>);
+		container = rendered.container;
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should render the test <test> element', () => {
+		const test = container.querySelector('test');
+		expect(test).not.toBeNull();
+	});
 });

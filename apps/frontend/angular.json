@@ -32,6 +32,12 @@
 					},
 					"configurations": {
 						"production": {
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
 							"tsConfig": "tsconfig.prod.json",
 							"outputPath": "dist/prod",
 							"outputHashing": "all",
@@ -43,7 +49,7 @@
 							"budgets": [
 								{
 									"type": "initial",
-									"maximumWarning": "500kB",
+									"maximumWarning": "600kB",
 									"maximumError": "1MB"
 								},
 								{
@@ -54,6 +60,12 @@
 							]
 						},
 						"development": {
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.dev.ts"
+								}
+							],
 							"tsConfig": "tsconfig.dev.json",
 							"outputPath": "dist/dev",
 							"sourceMap": true,

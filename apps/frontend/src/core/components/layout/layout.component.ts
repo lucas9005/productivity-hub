@@ -6,7 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FooterComponent } from '@shared/components/footer/footer.component';
-import { NavItem } from '@shared/models/nav-item.model';
+import type { NavItem } from '@shared/models/nav-item.model';
 
 /**
  * Global layout component.
